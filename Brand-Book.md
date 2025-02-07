@@ -20,85 +20,69 @@ To become the **most trusted** premium online therapy platform for Iranians abro
 - **Innovation** – Continuously integrate modern techniques and technologies for optimal outcomes.  
 - **Cultural Sensitivity** – Respect and incorporate Persian heritage to create a relatable and trusted service.  
 
-### 🗣 **Brand Personality and Tone of Voice**  
-#### **Personality Traits**  
-- 🤝 **Empathetic & Compassionate** – Warm, understanding, and deeply invested in the client’s journey.  
-- 🏛 **Sophisticated & Professional** – High-end, modern, and committed to excellence in every interaction.  
-- 🌍 **Culturally Aware** – Informed by Persian traditions without being confined by them.  
-- 🔥 **Inspiring & Transformative** – Motivates clients to embrace change and unlock their inner strength.  
-
-#### **Tone of Voice**  
-- **Balanced & Approachable** – Clear, calm, professional, and welcoming.  
-- **Empowering & Uplifting** – Inspires confidence and personal growth.  
-- **Culturally Respectful** – Subtle Persian expressions and references to strengthen cultural ties without compromising global appeal.  
-
 ---
 
 ## **2️⃣ Brand Positioning & Strategy**  
 
-### 🏷 **Name Meaning & Rationale**  
-#### **InnerQuest**  
-- **Meaning**: Represents an inward journey, emphasizing **self-discovery, introspection, and transformation**.  
-- **Rationale**:  
-  - The abstract name positions InnerQuest as **premium** and **globally scalable**.  
-  - It allows for cultural adaptability while still resonating with Persian literary and artistic traditions.  
-  - The brand narrative is both **personal and expansive**, inviting clients to embark on their **inner transformation journey**.  
+### 🏷 **Brand Identity & Meaning**  
+The InnerQuest name reflects **a journey of self-discovery, transformation, and personal growth**. The brand balances **international sophistication** with **cultural depth**, ensuring that it resonates with **Iranian expatriates** while maintaining **global appeal**.
 
-### 🎯 **Target Audience & Psychological Insights**  
-#### **Primary Audience**  
-- **Iranian expatriates and diaspora communities** seeking therapy that understands their **cultural background and personal challenges**.  
-- **Psychological Insights**:  
-  - They value **authenticity** and **deep cultural resonance** in mental health support.  
-  - They seek a **trusted, premium service** that validates their experiences.  
-
-#### **Secondary Audience**  
-- **International clients** looking for **modern, high-end online therapy** who may later benefit from culturally adapted offerings.  
-- They appreciate **quality, evidence-based practices, and professional excellence**.  
-
-### 🔥 **Competitive Advantage & Differentiation**  
-- **Culturally Informed Expertise** – InnerQuest uniquely **integrates global therapy** with **Iranian cultural nuances**.  
-- **Premium Global Positioning** – Differentiates from **low-cost alternatives** and competes with **top-tier therapy services**.  
-- **Hybrid Branding Strategy** – Merges **international appeal** with **culturally relevant content**, balancing **global reach** with **local trust**.  
-
-### 📈 **Scalability & Expansion Plan**  
-#### **Short-Term Strategy**  
-- Build **trust within the Iranian diaspora** with **bilingual support (English & Persian)**.  
-- **Tailored content** and specialized therapy services.  
-
-#### **Long-Term Goals**  
-- Expand services to **multiple languages** and **culturally diverse therapies**.  
-- Integrate **AI personalization & multilingual chatbots**.  
-- Form partnerships with **international mental health organizations**.  
+### 🎯 **Target Audience**  
+- **Primary Audience**: Iranian expatriates seeking culturally aware therapy services.  
+- **Secondary Audience**: Global clients looking for premium, high-end online therapy.  
 
 ---
 
 ## **3️⃣ Visual Identity Guidelines**  
 
-### 🎨 **Logo Concept & Color Palette**  
-#### **Logo Concept**  
-- A modern, **abstract emblem** symbolizing the **inward journey** (e.g., a **labyrinth, mandala, or dynamic swirl**).  
-- **Cultural Accents**: Subtle **Persian motifs** (calligraphic flourishes, geometric patterns).  
+### 🎨 **Logo Concept & Symbolism**  
 
-#### **Color Palette**  
+#### 🏛 **InnerQuest Logo**  
+
+![InnerQuest Logo](assets/logo.png)  
+
+The InnerQuest logo is designed to reflect **inner growth, transformation, and self-discovery** while maintaining a **modern, premium, and globally relevant** aesthetic.  
+
+#### 🌟 **Symbolism & Inspiration**  
+- **Inward Journey & Self-Discovery** → Represented through abstract paths, labyrinths, or fluid shapes.  
+- **Cultural Depth & Persian Influence** → Subtle **mandala-inspired geometry** or **calligraphic accents**.  
+- **Balance & Emotional Well-Being** → Flowing elements that symbolize transformation and harmony.  
+
+---
+
+### 🔤 **Typography & Font Selection**  
+
+- **Primary Typeface**: A modern, clean **sans-serif font** to reflect **professionalism and clarity**.  
+- **Optional Accent Typeface**: A **refined serif** font to introduce **elegance and warmth**.  
+- **Persian Typography**: If applicable, a subtle Persian-inspired **letterform or calligraphic accent** can be incorporated in a refined, minimalistic way.  
+
+---
+
+### 🎨 **Color Palette**  
+
 - **Primary Colors**:  
-  - 🎨 **Deep Teal / Sapphire Blue** – Trust, calm, professionalism.  
-  - 🎨 **Elegant Gold / Warm Copper** – Premium quality, Persian artistic heritage.  
+  - 🎨 **Deep Teal / Sapphire Blue** → Trust, introspection, and professionalism.  
+  - 🎨 **Elegant Gold / Warm Copper** → Premium quality and warmth, subtly nodding to Persian heritage.  
 - **Secondary Colors**:  
-  - 🎨 **Neutrals (Ivory, Light Gray)** – Balance, clarity.  
-  - 🎨 **Muted Burgundy / Emerald Green** – Subtle cultural richness.  
+  - 🎨 **Ivory / Soft Gray** → Ensures clarity and balance.  
+  - 🎨 **Muted Burgundy / Emerald Green** _(Optional)_ → Adds depth and cultural richness.  
 
-### 🔤 **Typography & Font Pairings**  
-- **Primary Typeface**: Sans-serif (e.g., **Helvetica Neue, Avenir**) for digital clarity.  
-- **Secondary Typeface**: Serif (e.g., **Georgia, Merriweather**) for printed materials.  
-- **Persian Typeface**: A **legible Persian font** that harmonizes with the brand’s modern aesthetic.  
+---
 
-### 🖼 **Imagery & Design Elements**  
-- **Photography & Illustrations**:  
-  - **Introspective, authentic images** that evoke **personal growth and mental well-being**.  
-  - Subtle cultural cues (Persian landscapes, symbolic architecture).  
-- **Design Elements**:  
-  - **Organic, fluid shapes** representing a journey.  
-  - **Persian-inspired textures** as accents.  
+### ✨ **Design Style & Aesthetic**  
+
+- **Minimalist Yet Symbolic** → The logo avoids excessive complexity while maintaining strong **conceptual depth**.  
+- **Balanced Elegance** → Merges **modern sophistication** with **warmth and approachability**.  
+- **Versatility** → Works effectively across **digital and print applications**.  
+
+---
+
+### 🖼 **Logo Variations & Usage Guidelines**  
+
+1. **Primary Logo** – Full-color version for digital and high-resolution print.  
+2. **Monochrome Version** – Ensures clarity in black-and-white applications.  
+3. **Text-Only Version** – A simplified logotype without emblem/icon.  
+4. **Badge/Monogram** – A compact version for smaller applications like favicons and social media icons.  
 
 ---
 
