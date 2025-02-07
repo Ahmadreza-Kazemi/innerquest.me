@@ -45,7 +45,7 @@ innerquest-website/
 │── package.json    # Dependencies and scripts
 │── README.md       # Project documentation
 │── LICENSE.md      # Proprietary license terms
-
+```
 
 ## 📜 Legal & Disclaimer  
 
