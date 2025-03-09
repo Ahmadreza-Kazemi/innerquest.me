@@ -170,75 +170,53 @@ body {
     background: #45a049;
 }
 
-/* Payment Section */
-#payment {
-    background-color: #fff;
-    margin-top: 20px;
-    border-radius: 8px;
-    padding: 40px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Pay Section */
+#pay-section {
+    background-color: #f7f7f7;
+    padding: 50px 0;
     text-align: center;
 }
 
-#payment h2 {
+.pay-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.pay-title {
     font-size: 24px;
-    margin-bottom: 20px;
+    font-weight: 700;
     color: #333;
-}
-
-.payment-methods {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.payment-option {
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    padding: 20px;
-    width: 250px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.payment-option:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-}
-
-.payment-icon {
-    width: 50px;
-    height: auto;
     margin-bottom: 15px;
 }
 
-.payment-option h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.payment-option p {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 20px;
+.pay-description {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 25px;
+    line-height: 1.5;
 }
 
 .pay-button {
-    display: inline-block;
-    background: #4CAF50;
+    background-color: #1abc9c;
     color: white;
-    padding: 12px 18px;
-    border-radius: 5px;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 600;
     text-decoration: none;
-    font-size: 16px;
-    transition: background 0.3s ease;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .pay-button:hover {
-    background: #45a049;
+    background-color: #16a085;
+    transform: scale(1.05);
 }
+
+.pay-button:active {
+    transform: scale(0.98);
+}
+
 
 
 /* Testimonials Section */
@@ -599,29 +577,14 @@ body {
 </script>
 
 
-<section id="payment">
-    <h2>How to Pay</h2>
-    <div class="payment-methods">
-        <div class="payment-option">
-            <img src="credit-card-icon.png" alt="Credit Card" class="payment-icon">
-            <h3>Credit Card</h3>
-            <p>Pay securely using your credit card. We accept Visa, MasterCard, and American Express.</p>
-            <a href="#" class="pay-button">Pay Now</a>
-        </div>
-        <div class="payment-option">
-            <img src="paypal-icon.png" alt="PayPal" class="payment-icon">
-            <h3>PayPal</h3>
-            <p>Use your PayPal account to pay quickly and securely.</p>
-            <a href="#" class="pay-button">Pay via PayPal</a>
-        </div>
-        <div class="payment-option">
-            <img src="bank-transfer-icon.png" alt="Bank Transfer" class="payment-icon">
-            <h3>Bank Transfer</h3>
-            <p>For larger payments, we offer direct bank transfers. Contact us for bank details.</p>
-            <a href="#" class="pay-button">Contact for Bank Details</a>
-        </div>
+<section id="pay-section">
+    <div class="pay-container">
+        <h2 class="pay-title">How to Pay</h2>
+        <p class="pay-description">To complete your payment, please use the link below to pay securely via YekPay. After completing your payment, make sure to keep the payment ID, as you will need it for the booking process.</p>
+        <a href="https://dashboard.yekpay.com/payment-link/9626/5fde5d1f88f6f4b5cb7151fe1db24c0fa0849f3c" target="_blank" class="pay-button">Pay Now with YekPay</a>
     </div>
 </section>
+
 
 
     <section id="testimonials">
