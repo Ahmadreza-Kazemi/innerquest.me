@@ -218,30 +218,6 @@ body {
 }
 
 
-
-/* FAQ Section */
-#faq {
-    background-color: #fff;
-    margin-top: 20px;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.faq-item {
-    margin-bottom: 15px;
-}
-
-.faq-item h4 {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.faq-item p {
-    font-size: 14px;
-    color: #666;
-}
-
 /* Pricing Section */
 #pricing {
     background-color: #fff;
@@ -678,18 +654,125 @@ body {
 }
 </style>
 
+<section id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-container">
+        <div class="faq-card">
+            <div class="faq-question">
+                <p>What is the purpose of the "Emotional Insight" test?</p>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>The "Emotional Insight" test aims to help individuals identify and understand their emotional responses to various situations, aiding in better emotional management and self-awareness.</p>
+            </div>
+        </div>
+        <div class="faq-card">
+            <div class="faq-question">
+                <p>How long does the test take to complete?</p>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>The test typically takes about 15-20 minutes to complete, depending on how quickly you respond to the questions.</p>
+            </div>
+        </div>
+        <div class="faq-card">
+            <div class="faq-question">
+                <p>Who can take the "Emotional Insight" test?</p>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>This test is designed for adults who are seeking to better understand their emotional responses and improve their emotional intelligence.</p>
+            </div>
+        </div>
+        <div class="faq-card">
+            <div class="faq-question">
+                <p>What happens after I complete the test?</p>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>Once you complete the test, you will receive a detailed report that highlights your emotional patterns and provides recommendations for managing them more effectively.</p>
+            </div>
+        </div>
+        <div class="faq-card">
+            <div class="faq-question">
+                <p>Can I retake the test?</p>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>Yes, you can retake the test at any time if you wish to track your emotional progress or simply explore different aspects of your emotional intelligence.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <section id="faq">
-        <h2>Frequently Asked Questions</h2>
-        <div class="faq-item">
-            <h3>How long is each therapy session?</h3>
-            <p>Each session lasts about 50 minutes, depending on the therapist's availability.</p>
-        </div>
-        <div class="faq-item">
-            <h3>What if I need to reschedule?</h3>
-            <p>If you need to reschedule, please contact us at least 24 hours before your session. We'll help find a suitable alternative time.</p>
-        </div>
-    </section>
+<style>
+/* FAQ Section */
+#faq {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+    text-align: center;
+}
+
+#faq h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-card {
+    background: white;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.faq-question {
+    background: #2c3e50;
+    color: white;
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggle-icon {
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.faq-answer {
+    display: none;
+    padding: 15px;
+    font-size: 16px;
+    color: #555;
+    background: #ecf0f1;
+}
+
+.faq-card.open .faq-answer {
+    display: block;
+}
+
+.faq-card.open .toggle-icon {
+    transform: rotate(45deg);
+}
+</style>
+
+<script>
+    document.querySelectorAll('.faq-card').forEach(card => {
+        card.querySelector('.faq-question').addEventListener('click', () => {
+            card.classList.toggle('open');
+        });
+    });
+</script>
 
     <section id="privacy">
         <h2>Your Privacy Matters</h2>
