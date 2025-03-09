@@ -99,98 +99,154 @@
 
 <section id="therapists">
     <h2>Our Therapists</h2>
-    <div class="therapist">
-        <img src="assets/images/therapists/nasseroddinkazemihaghighi.jpg" alt="Dr. Nasseroddin Kazemi Haghighi">
-        <h3>Dr. Nasseroddin Kazemi Haghighi</h3>
-        <p>Specialist in Anxiety & Stress Management</p>
-        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+
+    <!-- Filters Section -->
+    <div id="filters">
+        <h3>Filter Therapists</h3>
+        <form id="filter-form">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="">All</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
+            <label for="speciality">Specialty:</label>
+            <select id="speciality" name="speciality">
+                <option value="">All</option>
+                <option value="Anxiety">Anxiety</option>
+                <option value="Depression">Depression</option>
+                <option value="Trauma">Trauma</option>
+                <option value="Couples Therapy">Couples Therapy</option>
+                <option value="Addiction">Addiction</option>
+                <option value="PTSD">PTSD</option>
+                <option value="Child Therapy">Child Therapy</option>
+                <option value="Grief Counseling">Grief Counseling</option>
+                <option value="Eating Disorders">Eating Disorders</option>
+                <option value="Mindfulness">Mindfulness</option>
+            </select>
+
+            <label for="degree">Degree:</label>
+            <select id="degree" name="degree">
+                <option value="">All</option>
+                <option value="PhD">PhD</option>
+                <option value="Masters">Masters</option>
+                <option value="Doctoral">Doctoral</option>
+            </select>
+
+            <button type="button" id="clear-filters">Clear Filters</button>
+        </form>
     </div>
 
-    <div class="therapist">
-        <img src="assets/images/therapists/ahmadrezakazemihaghighi.jpg" alt="Ahmadreza Kazemi Haghighi">
-        <h3>Ahmadreza Kazemi Haghighi</h3>
-        <p>Specialist in Relationship Counseling</p>
-        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-    </div>
+    <!-- Therapists List -->
+    <div id="therapist-list">
+        <div class="therapist" data-gender="Male" data-speciality="Anxiety" data-degree="PhD">
+            <img src="assets/images/therapists/ahmadrezakazemihaghighi.jpg" alt="Dr. Nasseroddin Kazemi Haghighi">
+            <h3>Dr. Nasseroddin Kazemi Haghighi</h3>
+            <p>Specialist in Anxiety & Stress Management</p>
+            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+        </div>
 
-    <!-- New Therapists Added -->
-    <div class="therapist">
-        <img src="assets/images/therapists/therapist1.jpg" alt="Dr. Maryam Farahani">
-        <h3>Dr. Maryam Farahani</h3>
-        <p>Specialist in PTSD & Trauma Therapy</p>
-        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-    </div>
+        <div class="therapist" data-gender="Male" data-speciality="Depression" data-degree="Doctoral">
+            <img src="assets/images/therapists/ahmadrezakazemihaghighi.jpg" alt="Ahmadreza Kazemi Haghighi">
+            <h3>Ahmadreza Kazemi Haghighi</h3>
+            <p>Specialist in Depression and Mood Disorders</p>
+            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+        </div>
 
-    <div class="therapist">
-        <img src="assets/images/therapists/therapist2.jpg" alt="Dr. Ali Rezaei">
-        <h3>Dr. Ali Rezaei</h3>
-        <p>Specialist in Depression and Mood Disorders</p>
-        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-    </div>
+        <!-- New Therapists with the same image -->
+        <div class="therapist" data-gender="Female" data-speciality="Trauma" data-degree="PhD">
+            <img src="assets/images/therapists/ahmadrezakazemihaghighi.jpg" alt="Dr. Maryam Farahani">
+            <h3>Dr. Maryam Farahani</h3>
+            <p>Specialist in PTSD & Trauma Therapy</p>
+            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+        </div>
 
-    <div class="therapist">
-        <img src="assets/images/therapists/therapist3.jpg" alt="Dr. Shahram Khosravi">
-        <h3>Dr. Shahram Khosravi</h3>
-        <p>Specialist in Addiction and Recovery</p>
-        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-    </div>
+        <div class="therapist" data-gender="Female" data-speciality="Addiction" data-degree="Masters">
+            <img src="assets/images/therapists/ahmadrezakazemihaghighi.jpg" alt="Dr. Ali Rezaei">
+            <h3>Dr. Ali Rezaei</h3>
+            <p>Specialist in Addiction and Recovery</p>
+            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+        </div>
 
-    <div class="therapist">
-        <img src="assets/images/therapists/therapist4.jpg" alt="Dr. Sara Alizadeh">
-        <h3>Dr. Sara Alizadeh</h3>
-        <p>Specialist in Couples Therapy</p>
-        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-    </div>
+        <div class="therapist" data-gender="Male" data-speciality="Couples Therapy" data-degree="Doctoral">
+            <img src="assets/images/therapists/ahmadrezakazemihaghighi.jpg" alt="Dr. Shahram Khosravi">
+            <h3>Dr. Shahram Khosravi</h3>
+            <p>Specialist in Couples Therapy</p>
+            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+        </div>
 
-    <div class="therapist">
-        <img src="assets/images/therapists/therapist5.jpg" alt="Dr. Reza Hashemi">
-        <h3>Dr. Reza Hashemi</h3>
-        <p>Specialist in Anger Management</p>
-        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-    </div>
+        <div class="therapist" data-gender="Female" data-speciality="PTSD" data-degree="PhD">
+            <img src="assets/images/therapists/ahmadrezakazemihaghighi.jpg" alt="Dr. Sara Alizadeh">
+            <h3>Dr. Sara Alizadeh</h3>
+            <p>Specialist in PTSD and Trauma</p>
+            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+        </div>
 
-    <div class="therapist">
-        <img src="assets/images/therapists/therapist6.jpg" alt="Dr. Laila Pour">
-        <h3>Dr. Laila Pour</h3>
-        <p>Specialist in Child and Adolescent Therapy</p>
-        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-    </div>
+        <div class="therapist" data-gender="Male" data-speciality="Child Therapy" data-degree="Doctoral">
+            <img src="assets/images/therapists/ahmadrezakazemihaghighi.jpg" alt="Dr. Reza Hashemi">
+            <h3>Dr. Reza Hashemi</h3>
+            <p>Specialist in Child and Adolescent Therapy</p>
+            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+        </div>
 
-    <div class="therapist">
-        <img src="assets/images/therapists/therapist7.jpg" alt="Dr. Farid Jafari">
-        <h3>Dr. Farid Jafari</h3>
-        <p>Specialist in Anxiety Disorders</p>
-        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-    </div>
+        <div class="therapist" data-gender="Female" data-speciality="Eating Disorders" data-degree="Masters">
+            <img src="assets/images/therapists/ahmadrezakazemihaghighi.jpg" alt="Dr. Laila Pour">
+            <h3>Dr. Laila Pour</h3>
+            <p>Specialist in Eating Disorders</p>
+            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+        </div>
 
-    <div class="therapist">
-        <img src="assets/images/therapists/therapist8.jpg" alt="Dr. Niloufar Khademi">
-        <h3>Dr. Niloufar Khademi</h3>
-        <p>Specialist in Grief and Loss Counseling</p>
-        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-    </div>
+        <div class="therapist" data-gender="Male" data-speciality="Grief Counseling" data-degree="PhD">
+            <img src="assets/images/therapists/ahmadrezakazemihaghighi.jpg" alt="Dr. Farid Jafari">
+            <h3>Dr. Farid Jafari</h3>
+            <p>Specialist in Grief and Loss Counseling</p>
+            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+        </div>
 
-    <div class="therapist">
-        <img src="assets/images/therapists/therapist9.jpg" alt="Dr. Kianoush Bahrami">
-        <h3>Dr. Kianoush Bahrami</h3>
-        <p>Specialist in Trauma and Crisis Management</p>
-        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-    </div>
-
-    <div class="therapist">
-        <img src="assets/images/therapists/therapist10.jpg" alt="Dr. Yasaman Ghaffari">
-        <h3>Dr. Yasaman Ghaffari</h3>
-        <p>Specialist in Eating Disorders</p>
-        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-    </div>
-
-    <div class="therapist">
-        <img src="assets/images/therapists/therapist11.jpg" alt="Dr. Shirin Fathi">
-        <h3>Dr. Shirin Fathi</h3>
-        <p>Specialist in Self-Improvement & Mindfulness</p>
-        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+        <div class="therapist" data-gender="Female" data-speciality="Mindfulness" data-degree="Masters">
+            <img src="assets/images/therapists/ahmadrezakazemihaghighi.jpg" alt="Dr. Niloufar Khademi">
+            <h3>Dr. Niloufar Khademi</h3>
+            <p>Specialist in Self-Improvement & Mindfulness</p>
+            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+        </div>
     </div>
 </section>
+
+<!-- JavaScript for Filter Functionality -->
+<script>
+    document.getElementById('filter-form').addEventListener('change', function() {
+        const gender = document.getElementById('gender').value;
+        const speciality = document.getElementById('speciality').value;
+        const degree = document.getElementById('degree').value;
+
+        const therapists = document.querySelectorAll('.therapist');
+        therapists.forEach(therapist => {
+            const therapistGender = therapist.getAttribute('data-gender');
+            const therapistSpeciality = therapist.getAttribute('data-speciality');
+            const therapistDegree = therapist.getAttribute('data-degree');
+
+            if ((gender === "" || therapistGender === gender) &&
+                (speciality === "" || therapistSpeciality === speciality) &&
+                (degree === "" || therapistDegree === degree)) {
+                therapist.style.display = 'block';
+            } else {
+                therapist.style.display = 'none';
+            }
+        });
+    });
+
+    document.getElementById('clear-filters').addEventListener('click', function() {
+        document.getElementById('gender').value = '';
+        document.getElementById('speciality').value = '';
+        document.getElementById('degree').value = '';
+        const therapists = document.querySelectorAll('.therapist');
+        therapists.forEach(therapist => {
+            therapist.style.display = 'block';
+        });
+    });
+</script>
+
 
 
     <section id="payment">
