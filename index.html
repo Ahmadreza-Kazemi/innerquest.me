@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Innerquest Online Therapy Booking - Book your online therapy session with our specialists.">
-    <title>Online Therapy Booking - Innerquest</title>
+    <title>Innerquest - Online Therapy Booking</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
@@ -12,27 +11,35 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-            text-align: center;
         }
         header {
             background: #4CAF50;
             color: white;
             padding: 20px;
-            font-size: 24px;
+            text-align: center;
+        }
+        header img {
+            width: 150px;
+            margin-bottom: 10px;
         }
         section {
             padding: 20px;
+            text-align: center;
         }
-        #therapists {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+        .cta-btn {
+            background-color: #4CAF50;
+            padding: 10px 15px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
         }
         .therapist {
-            background: white;
-            padding: 15px;
+            display: inline-block;
+            margin: 20px;
+            background-color: white;
             border-radius: 8px;
+            padding: 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             width: 250px;
         }
@@ -40,71 +47,75 @@
             width: 100%;
             border-radius: 8px;
         }
-        .therapist h3 {
-            margin: 10px 0 5px;
-            font-size: 20px;
-        }
-        .therapist p {
-            font-size: 14px;
-            color: #666;
-        }
-        .therapist a {
-            display: inline-block;
-            background: #4CAF50;
-            color: white;
-            text-decoration: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-        #payment a {
-            background: #f44336;
-            padding: 10px 15px;
-            color: white;
-            border-radius: 5px;
-            text-decoration: none;
-        }
         footer {
             background: #333;
             color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .steps {
+            list-style-type: none;
+            padding: 0;
+        }
+        .steps li {
+            margin: 10px 0;
+            background-color: #e7f7e7;
             padding: 10px;
-            margin-top: 20px;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Book Your Online Therapy Session with Innerquest</h1>
-        <p>Choose a therapist, make a payment, and book your session.</p>
+        <img src="/assets/logo.png" alt="Innerquest Logo">
+        <h1>Welcome to Innerquest</h1>
+        <p>Book your therapy session online in just a few steps.</p>
     </header>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>At Innerquest, we offer online therapy with professional, experienced therapists to help you manage stress, anxiety, and relationships.</p>
+    </section>
 
     <section id="therapists">
         <h2>Our Therapists</h2>
         <div class="therapist">
-            <img src="assets/images/therapists/nasseroddinkazemihaghighi.jpg" alt="Dr. Nasseroddin Kazemi Haghighi">
+            <img src="/assets/images/therapists/nasseroddinkazemihaghighi.jpg" alt="Dr. Nasseroddin Kazemi Haghighi">
             <h3>Dr. Nasseroddin Kazemi Haghighi</h3>
             <p>Specialist in Anxiety & Stress Management</p>
-            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+            <a href="#how-to" class="cta-btn">Learn How to Book</a>
         </div>
-
         <div class="therapist">
-            <img src="assets/images/therapists/ahmadrezakazemihaghighi.jpg" alt="Ahmadreza Kazemi Haghighi">
+            <img src="/assets/images/therapists/ahmadrezakazemihaghighi.jpg" alt="Ahmadreza Kazemi Haghighi">
             <h3>Ahmadreza Kazemi Haghighi</h3>
             <p>Specialist in Relationship Counseling</p>
-            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+            <a href="#how-to" class="cta-btn">Learn How to Book</a>
         </div>
     </section>
 
+    <!-- How to Book a Session Section -->
+    <section id="how-to">
+        <h2>How to Book a Session</h2>
+        <p>Follow these steps to book your therapy session:</p>
+        <ul class="steps">
+            <li><strong>Step 1:</strong> First, make your payment using the secure link below.</li>
+            <li><strong>Step 2:</strong> After payment, you will receive a payment code.</li>
+            <li><strong>Step 3:</strong> Choose your therapist and select an available time slot.</li>
+            <li><strong>Step 4:</strong> Enter the payment code to confirm your booking.</li>
+            <li><strong>Step 5:</strong> You're all set! Your therapist will contact you for your session at the scheduled time.</li>
+        </ul>
+    </section>
+
+    <!-- Payment Section -->
     <section id="payment">
         <h2>How to Pay</h2>
-        <p>1. Make a payment using our secure payment link:</p>
-        <a href="https://dashboard.yekpay.com/payment-link/9626/5fde5d1f88f6f4b5cb7151fe1db24c0fa0849f3c" target="_blank">Pay Now</a>
-        <p>2. After payment, you will receive a payment code.</p>
-        <p>3. Enter the payment code when booking your session.</p>
+        <p>Make a payment using the secure payment link below:</p>
+        <a href="https://dashboard.yekpay.com/payment-link/9626/5fde5d1f88f6f4b5cb7151fe1db24c0fa0849f3c" target="_blank" class="cta-btn">Pay Now</a>
+        <p>After payment, you will receive a payment code that you can use in the booking process.</p>
     </section>
 
     <footer>
-        <p>&copy; 2025 Innerquest - Online Therapy Booking. All rights reserved.</p>
+        <p>&copy; 2025 Innerquest. All rights reserved.</p>
     </footer>
 </body>
 </html>
