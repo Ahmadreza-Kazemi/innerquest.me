@@ -219,30 +219,6 @@ body {
 
 
 
-/* Testimonials Section */
-#testimonials {
-    background-color: #fff;
-    margin-top: 20px;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.testimonial {
-    margin-bottom: 15px;
-    font-size: 16px;
-    color: #333;
-}
-
-.testimonial p {
-    font-style: italic;
-}
-
-.testimonial .author {
-    font-weight: bold;
-    margin-top: 5px;
-}
-
 /* FAQ Section */
 #faq {
     background-color: #fff;
@@ -623,17 +599,85 @@ body {
 
 
 
-    <section id="testimonials">
-        <h2>What Our Clients Say</h2>
+<section id="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial-container">
         <div class="testimonial">
-            <p>"Dr. Kazemi's understanding of Iranian culture helped me feel understood and supported. The therapy sessions have truly changed my life!"</p>
-            <span>- Sara, London</span>
+            <p>"The therapy sessions I had with Innerquest truly changed my life. I feel more confident and at peace with myself."</p>
+            <p class="author">John Doe</p>
+            <p class="author-details">Business Executive</p>
         </div>
         <div class="testimonial">
-            <p>"Ahmadreza's advice on relationship issues was invaluable. His cultural sensitivity made all the difference!"</p>
-            <span>- Reza, USA</span>
+            <p>"I never realized how much my anxiety was affecting my life. Thanks to my therapist, I’m on a path to healing."</p>
+            <p class="author">Jane Smith</p>
+            <p class="author-details">Teacher</p>
         </div>
-    </section>
+        <div class="testimonial">
+            <p>"Highly professional and compassionate team. I felt heard and supported every step of the way."</p>
+            <p class="author">Alice Johnson</p>
+            <p class="author-details">Software Developer</p>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Testimonials Section */
+#testimonials {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+    text-align: center;
+}
+
+#testimonials h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.testimonial-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonial {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.testimonial:hover {
+    transform: translateY(-10px);
+}
+
+.testimonial p {
+    font-size: 16px;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.author {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-top: 10px;
+}
+
+.author-details {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-top: 5px;
+}
+</style>
+
 
     <section id="faq">
         <h2>Frequently Asked Questions</h2>
