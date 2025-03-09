@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Innerquest - Online Therapy Booking</title>
+    <title>Online Therapy Booking - Innerquest</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
@@ -11,35 +11,30 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            text-align: center;
         }
         header {
             background: #4CAF50;
             color: white;
             padding: 20px;
-            text-align: center;
+            font-size: 24px;
         }
         header img {
-            width: 150px;
-            margin-bottom: 10px;
+            height: 50px;
         }
         section {
             padding: 20px;
-            text-align: center;
         }
-        .cta-btn {
-            background-color: #4CAF50;
-            padding: 10px 15px;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 18px;
+        #therapists {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
         .therapist {
-            display: inline-block;
-            margin: 20px;
-            background-color: white;
+            background: white;
+            padding: 15px;
             border-radius: 8px;
-            padding: 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             width: 250px;
         }
@@ -47,76 +42,238 @@
             width: 100%;
             border-radius: 8px;
         }
+        .therapist h3 {
+            margin: 10px 0 5px;
+            font-size: 20px;
+        }
+        .therapist p {
+            font-size: 14px;
+            color: #666;
+        }
+        .therapist a {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        #payment a {
+            background: #f44336;
+            padding: 10px 15px;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        #testimonials, #faq, #pricing, #contact, #privacy, #newsletter, #blog {
+            background-color: #fff;
+            margin-top: 20px;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
         footer {
             background: #333;
             color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        .steps {
-            list-style-type: none;
-            padding: 0;
-        }
-        .steps li {
-            margin: 10px 0;
-            background-color: #e7f7e7;
             padding: 10px;
-            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .faq-item, .testimonial {
+            margin-bottom: 15px;
+        }
+        .price-package {
+            margin-bottom: 15px;
+        }
+        .blog-post {
+            margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
     <header>
         <img src="assets/logo.png" alt="Innerquest Logo">
-        <h1>Welcome to Innerquest</h1>
-        <p>Book your therapy session online with the expertise of culturally experienced Iranian therapists.</p>
+        <h1>Book Your Online Therapy Session</h1>
+        <p>Choose a therapist, make a payment, and book your session.</p>
     </header>
 
-    <section id="about">
-        <h2>About Us</h2>
-        <p>At Innerquest, we offer online therapy for Iranians living abroad, powered by EoT (Emotion of Thought) Institute. Our therapists specialize in culturally relevant approaches, providing tailored psychological support to meet your unique needs.</p>
-        <p>Our team of experienced Iranian psychologists is well-versed in understanding and addressing the cultural nuances and challenges faced by the Iranian diaspora, ensuring that therapy is effective and truly resonates with you.</p>
-    </section>
+<section id="therapists">
+    <h2>Our Therapists</h2>
+    <div class="therapist">
+        <img src="assets/images/therapists/nasseroddinkazemihaghighi.jpg" alt="Dr. Nasseroddin Kazemi Haghighi">
+        <h3>Dr. Nasseroddin Kazemi Haghighi</h3>
+        <p>Specialist in Anxiety & Stress Management</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+    </div>
 
-    <section id="therapists">
-        <h2>Our Therapists</h2>
-        <div class="therapist">
-            <img src="assets/images/therapists/nasseroddinkazemihaghighi.jpg" alt="Dr. Nasseroddin Kazemi Haghighi">
-            <h3>Dr. Nasseroddin Kazemi Haghighi</h3>
-            <p>Specialist in Anxiety & Stress Management</p>
-            <a href="#how-to" class="cta-btn">Learn How to Book</a>
-        </div>
-        <div class="therapist">
-            <img src="assets/images/therapists/ahmadrezakazemihaghighi.jpg" alt="Ahmadreza Kazemi Haghighi">
-            <h3>Ahmadreza Kazemi Haghighi</h3>
-            <p>Specialist in Relationship Counseling</p>
-            <a href="#how-to" class="cta-btn">Learn How to Book</a>
-        </div>
-    </section>
+    <div class="therapist">
+        <img src="assets/images/therapists/ahmadrezakazemihaghighi.jpg" alt="Ahmadreza Kazemi Haghighi">
+        <h3>Ahmadreza Kazemi Haghighi</h3>
+        <p>Specialist in Relationship Counseling</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+    </div>
 
-    <!-- How to Book a Session Section -->
-    <section id="how-to">
-        <h2>How to Book a Session</h2>
-        <p>Follow these steps to book your therapy session:</p>
-        <ul class="steps">
-            <li><strong>Step 1:</strong> First, make your payment using the secure link below.</li>
-            <li><strong>Step 2:</strong> After payment, you will receive a payment code.</li>
-            <li><strong>Step 3:</strong> Choose your therapist and select an available time slot.</li>
-            <li><strong>Step 4:</strong> Enter the payment code to confirm your booking.</li>
-            <li><strong>Step 5:</strong> You're all set! Your therapist will contact you for your session at the scheduled time.</li>
-        </ul>
-    </section>
+    <!-- New Therapists Added -->
+    <div class="therapist">
+        <img src="assets/images/therapists/therapist1.jpg" alt="Dr. Maryam Farahani">
+        <h3>Dr. Maryam Farahani</h3>
+        <p>Specialist in PTSD & Trauma Therapy</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+    </div>
 
-    <!-- Payment Section -->
+    <div class="therapist">
+        <img src="assets/images/therapists/therapist2.jpg" alt="Dr. Ali Rezaei">
+        <h3>Dr. Ali Rezaei</h3>
+        <p>Specialist in Depression and Mood Disorders</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+    </div>
+
+    <div class="therapist">
+        <img src="assets/images/therapists/therapist3.jpg" alt="Dr. Shahram Khosravi">
+        <h3>Dr. Shahram Khosravi</h3>
+        <p>Specialist in Addiction and Recovery</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+    </div>
+
+    <div class="therapist">
+        <img src="assets/images/therapists/therapist4.jpg" alt="Dr. Sara Alizadeh">
+        <h3>Dr. Sara Alizadeh</h3>
+        <p>Specialist in Couples Therapy</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+    </div>
+
+    <div class="therapist">
+        <img src="assets/images/therapists/therapist5.jpg" alt="Dr. Reza Hashemi">
+        <h3>Dr. Reza Hashemi</h3>
+        <p>Specialist in Anger Management</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+    </div>
+
+    <div class="therapist">
+        <img src="assets/images/therapists/therapist6.jpg" alt="Dr. Laila Pour">
+        <h3>Dr. Laila Pour</h3>
+        <p>Specialist in Child and Adolescent Therapy</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+    </div>
+
+    <div class="therapist">
+        <img src="assets/images/therapists/therapist7.jpg" alt="Dr. Farid Jafari">
+        <h3>Dr. Farid Jafari</h3>
+        <p>Specialist in Anxiety Disorders</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+    </div>
+
+    <div class="therapist">
+        <img src="assets/images/therapists/therapist8.jpg" alt="Dr. Niloufar Khademi">
+        <h3>Dr. Niloufar Khademi</h3>
+        <p>Specialist in Grief and Loss Counseling</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+    </div>
+
+    <div class="therapist">
+        <img src="assets/images/therapists/therapist9.jpg" alt="Dr. Kianoush Bahrami">
+        <h3>Dr. Kianoush Bahrami</h3>
+        <p>Specialist in Trauma and Crisis Management</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+    </div>
+
+    <div class="therapist">
+        <img src="assets/images/therapists/therapist10.jpg" alt="Dr. Yasaman Ghaffari">
+        <h3>Dr. Yasaman Ghaffari</h3>
+        <p>Specialist in Eating Disorders</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+    </div>
+
+    <div class="therapist">
+        <img src="assets/images/therapists/therapist11.jpg" alt="Dr. Shirin Fathi">
+        <h3>Dr. Shirin Fathi</h3>
+        <p>Specialist in Self-Improvement & Mindfulness</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+    </div>
+</section>
+
+
     <section id="payment">
         <h2>How to Pay</h2>
-        <p>Make a payment using the secure payment link below:</p>
-        <a href="https://dashboard.yekpay.com/payment-link/9626/5fde5d1f88f6f4b5cb7151fe1db24c0fa0849f3c" target="_blank" class="cta-btn">Pay Now</a>
-        <p>After payment, you will receive a payment code that you can use in the booking process.</p>
+        <p>1. Make a payment using our secure payment link:</p>
+        <a href="https://dashboard.yekpay.com/payment-link/9626/5fde5d1f88f6f4b5cb7151fe1db24c0fa0849f3c" target="_blank">Pay Now</a>
+        <p>2. After payment, you will receive a payment code.</p>
+        <p>3. Enter the payment code when booking your session.</p>
+    </section>
+
+    <section id="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial">
+            <p>"Dr. Kazemi's understanding of Iranian culture helped me feel understood and supported. The therapy sessions have truly changed my life!"</p>
+            <span>- Sara, London</span>
+        </div>
+        <div class="testimonial">
+            <p>"Ahmadreza's advice on relationship issues was invaluable. His cultural sensitivity made all the difference!"</p>
+            <span>- Reza, USA</span>
+        </div>
+    </section>
+
+    <section id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h3>How long is each therapy session?</h3>
+            <p>Each session lasts about 50 minutes, depending on the therapist's availability.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What if I need to reschedule?</h3>
+            <p>If you need to reschedule, please contact us at least 24 hours before your session. We'll help find a suitable alternative time.</p>
+        </div>
+    </section>
+
+    <section id="privacy">
+        <h2>Your Privacy Matters</h2>
+        <p>We are committed to keeping your information secure and confidential. Our platform uses encrypted communication for therapy sessions, and we ensure that all payment details are processed through secure and trusted providers.</p>
+    </section>
+
+    <section id="pricing">
+        <h2>Pricing</h2>
+        <p>We offer affordable therapy sessions tailored to your needs:</p>
+        <div class="price-package">
+            <h3>Single Session</h3>
+            <p>$100</p>
+        </div>
+        <div class="price-package">
+            <h3>5-Session Package</h3>
+            <p>$450</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Have any questions? Feel free to reach out to us!</p>
+        <form action="submit-form.php" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <section id="newsletter">
+        <h2>Stay Informed</h2>
+        <p>Sign up for our newsletter to receive updates on new therapists and helpful resources.</p>
+        <form action="submit-newsletter.php" method="POST">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <section id="blog">
+        <h2>Resource Center</h2>
+        <div class="blog-post">
+            <h3>How to Deal with Stress While Living Abroad</h3>
+            <p>Living away from home can be overwhelming. Here are some tips to manage stress...</p>
+            <a href="#">Read More</a>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Innerquest. Powered by EoT (Emotion of Thought) Institute. All rights reserved.</p>
+        <p>&copy; 2025 Innerquest. Powered by Emotion of Thought (EoT) Institute. All rights reserved.</p>
     </footer>
 </body>
 </html>
