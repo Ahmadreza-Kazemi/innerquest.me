@@ -16,23 +16,63 @@ body {
 }
 
 /* Header Section */
-header {
-    background: #4CAF50;
+#main-header {
+    background-color: #2C3E50;
     color: white;
-    padding: 20px;
-    font-size: 24px;
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-header img {
+.logo img {
     height: 50px;
+    width: auto;
 }
 
-header h1 {
+.navigation ul {
+    display: flex;
+    list-style-type: none;
     margin: 0;
+    padding: 0;
+}
+
+.navigation ul li {
+    margin: 0 20px;
+}
+
+.navigation ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navigation ul li a:hover {
+    color: #1abc9c;
+}
+
+.cta .cta-button {
+    background-color: #1abc9c;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.cta .cta-button:hover {
+    background-color: #16a085;
 }
 
 /* Therapist Section */
@@ -388,11 +428,25 @@ header h1 {
     </style>
 </head>
 <body>
-    <header>
-        <img src="assets/logo.png" alt="Innerquest Logo">
-        <h1>Book Your Online Therapy Session</h1>
-        <p>Choose a therapist, make a payment, and book your session.</p>
-    </header>
+<header id="main-header">
+    <div class="header-container">
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <nav class="navigation">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="cta">
+            <a href="#get-started" class="cta-button">Get Started</a>
+        </div>
+    </div>
+</header>
+
 
 <section id="therapists">
     <h2>Our Therapists</h2>
