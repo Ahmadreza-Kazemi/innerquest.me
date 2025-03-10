@@ -1,1322 +1,1187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Therapy Booking - Innerquest</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-     /* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    text-align: center;
-}
-
-
-
-/* Therapist Section */
-#therapists {
-    padding: 20px;
-}
-
-#therapists h2 {
-    margin-bottom: 20px;
-}
-
-#filters {
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    border-radius: 8px;
-}
-
-#filters h3 {
-    margin-bottom: 15px;
-    font-size: 20px;
-}
-
-#filter-form label {
-    font-size: 14px;
-    margin-right: 10px;
-}
-
-#filter-form select {
-    padding: 5px;
-    margin: 5px 10px 20px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-#filter-form button {
-    background: #4CAF50;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-}
-
-#filter-form button:hover {
-    background: #45a049;
-}
-
-/* Therapist List */
-#therapist-list {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.therapist {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 250px;
-    text-align: center;
-}
-
-.therapist img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-.therapist h3 {
-    margin: 10px 0;
-    font-size: 20px;
-}
-
-.therapist p {
-    font-size: 14px;
-    color: #666;
-}
-
-.therapist a {
-    display: inline-block;
-    background: #4CAF50;
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    margin-top: 10px;
-}
-
-.therapist a:hover {
-    background: #45a049;
-}
-
-/* Pay Section */
-#pay-section {
-    background-color: #f7f7f7;
-    padding: 50px 0;
-    text-align: center;
-}
-
-.pay-container {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.pay-title {
-    font-size: 24px;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-.pay-description {
-    font-size: 16px;
-    color: #777;
-    margin-bottom: 25px;
-    line-height: 1.5;
-}
-
-.pay-button {
-    background-color: #1abc9c;
-    color: white;
-    padding: 15px 30px;
-    font-size: 18px;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 5px;
-    display: inline-block;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.pay-button:hover {
-    background-color: #16a085;
-    transform: scale(1.05);
-}
-
-.pay-button:active {
-    transform: scale(0.98);
-}
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Therapy Booking - InnerQuest</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #FAF9F6; /* Ivory / Soft Gray */
+      color: #333;
+      text-align: center;
+    }
+  </style>
+  <!-- Header Styles -->
+  <style>
+    /* Header Section */
+    #main-header {
+      background-color: #0D3B66; /* Deep Teal */
+      color: #fff;
+      padding: 20px 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .logo img {
+      height: 50px;
+      width: auto;
+    }
+    
+    .navigation ul {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .navigation ul li {
+      margin: 0 20px;
+    }
+    
+    .navigation ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    .navigation ul li a:hover {
+      color: #D4AF37; /* Elegant Gold */
+    }
+    
+    .cta .cta-button {
+      background-color: #D4AF37; /* Elegant Gold */
+      color: white;
+      padding: 12px 25px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    
+    .cta .cta-button:hover {
+      background-color: #B2962C;
+    }
+  </style>
 </head>
 <body>
-<header id="main-header">
+  <header id="main-header">
     <div class="header-container">
-        <div class="logo">
-            <img src="assets/logo.png" alt="Logo">
-        </div>
-        <nav class="navigation">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="cta">
-            <a href="#get-started" class="cta-button">Get Started</a>
-        </div>
+      <div class="logo">
+        <img src="assets/logo.png" alt="Logo">
+      </div>
+      <nav class="navigation">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="cta">
+        <a href="#get-started" class="cta-button">Get Started</a>
+      </div>
     </div>
-</header>
-<style>/* Header Section */
-#main-header {
-    background-color: #2C3E50;
-    color: white;
-    padding: 20px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.logo img {
-    height: 50px;
-    width: auto;
-}
-
-.navigation ul {
-    display: flex;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.navigation ul li {
-    margin: 0 20px;
-}
-
-.navigation ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.navigation ul li a:hover {
-    color: #1abc9c;
-}
-
-.cta .cta-button {
-    background-color: #1abc9c;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-}
-
-.cta .cta-button:hover {
-    background-color: #16a085;
-}
-</style>
-
-<section id="heading-section">
+  </header>
+  
+  <!-- Heading Section -->
+  <section id="heading-section">
     <div class="heading-container">
-        <h1 class="heading-title">Find Support, Anytime, Anywhere</h1>
-        <p class="heading-subtitle">
-            Connect with culturally attuned therapists who understand your journey. 
-            Select your therapist, schedule your session, and take the first step toward well-being.
-        </p>
-        <a href="#booking" class="cta-button">Book a Session Now</a>
+      <h1 class="heading-title">Find Support, Anytime, Anywhere</h1>
+      <!-- Added Tagline per Brand Guidelines -->
+      <p class="tagline" style="font-size:20px; font-weight:500; margin: 10px 0; color: #E0E0E0;">Your Journey, Reimagined</p>
+      <p class="heading-subtitle">
+        Connect with culturally attuned therapists who understand your journey. 
+        Select your therapist, schedule your session, and take the first step toward well-being.
+      </p>
+      <a href="#booking" class="cta-button">Book a Session Now</a>
     </div>
-</section>
-
-<style>
-/* Heading Section */
-#heading-section {
-    background-color: #2c3e50;
-    color: white;
-    padding: 60px 0;
-    text-align: center;
-}
-
-.heading-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.heading-title {
-    font-size: 38px;
-    font-weight: 700;
-    margin-bottom: 15px;
-    letter-spacing: 1px;
-}
-
-.heading-subtitle {
-    font-size: 20px;
-    font-weight: 400;
-    color: #bdc3c7;
-    line-height: 1.6;
-    margin-top: 0;
-}
-
-/* CTA Button */
-.cta-button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 24px;
-    font-size: 18px;
-    font-weight: 600;
-    color: white;
-    background-color: #e74c3c;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: #c0392b;
-}
-</style>
-
-
-<section id="therapists">
+  </section>
+  <style>
+    /* Heading Section Styles */
+    #heading-section {
+      background-color: #0D3B66; /* Deep Teal */
+      color: #fff;
+      padding: 60px 0;
+      text-align: center;
+    }
+    
+    .heading-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .heading-title {
+      font-size: 38px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+    
+    .heading-subtitle {
+      font-size: 20px;
+      font-weight: 400;
+      color: #E0E0E0;
+      line-height: 1.6;
+      margin-top: 0;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #0D3B66;
+      background-color: #D4AF37;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    
+    .cta-button:hover {
+      background-color: #B2962C;
+    }
+  </style>
+  
+  <!-- Therapists Section -->
+  <section id="therapists">
     <h2>Our Therapists</h2>
-
+  
     <!-- Filters Section -->
     <div id="filters">
-        <h3>Filter Therapists</h3>
-        <form id="filter-form">
-            <label for="gender">Gender:</label>
-            <select id="gender" name="gender">
-                <option value="">All</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-            </select>
-
-            <label for="speciality">Specialty:</label>
-            <select id="speciality" name="speciality">
-                <option value="">All</option>
-                <option value="Anxiety">Anxiety</option>
-                <option value="Depression">Depression</option>
-                <option value="Trauma">Trauma</option>
-                <option value="Couples Therapy">Couples Therapy</option>
-                <option value="Addiction">Addiction</option>
-                <option value="PTSD">PTSD</option>
-                <option value="Child Therapy">Child Therapy</option>
-                <option value="Grief Counseling">Grief Counseling</option>
-                <option value="Eating Disorders">Eating Disorders</option>
-                <option value="Mindfulness">Mindfulness</option>
-            </select>
-
-            <label for="degree">Degree:</label>
-            <select id="degree" name="degree">
-                <option value="">All</option>
-                <option value="PhD">PhD</option>
-                <option value="Masters">Masters</option>
-                <option value="Doctoral">Doctoral</option>
-            </select>
-
-            <button type="button" id="clear-filters">Clear Filters</button>
-        </form>
+      <h3>Filter Therapists</h3>
+      <form id="filter-form">
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+          <option value="">All</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+  
+        <label for="speciality">Specialty:</label>
+        <select id="speciality" name="speciality">
+          <option value="">All</option>
+          <option value="Anxiety">Anxiety</option>
+          <option value="Depression">Depression</option>
+          <option value="Trauma">Trauma</option>
+          <option value="Couples Therapy">Couples Therapy</option>
+          <option value="Addiction">Addiction</option>
+          <option value="PTSD">PTSD</option>
+          <option value="Child Therapy">Child Therapy</option>
+          <option value="Grief Counseling">Grief Counseling</option>
+          <option value="Eating Disorders">Eating Disorders</option>
+          <option value="Mindfulness">Mindfulness</option>
+        </select>
+  
+        <label for="degree">Degree:</label>
+        <select id="degree" name="degree">
+          <option value="">All</option>
+          <option value="PhD">PhD</option>
+          <option value="Masters">Masters</option>
+          <option value="Doctoral">Doctoral</option>
+        </select>
+  
+        <button type="button" id="clear-filters">Clear Filters</button>
+      </form>
     </div>
-
+  
     <!-- Therapists List -->
     <div id="therapist-list">
-
-<div class="therapist" data-gender="Female" data-speciality="Depression" data-degree="Doctoral">
-    <img src="assets/images/therapists/nasseroddinkazemihaghighi.jpg" alt="Dr. Nasreddin Kazemi Haghighi">
-    <h3>Dr. Nasreddin Kazemi Haghighi</h3>
-    <p>Specialist in Depression and Mood Disorders</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Female" data-speciality="Psychotherapy" data-degree="Masters">
-    <img src="assets/images/therapists/tayebehmalmir.jpg" alt="Tayebeh Malmir">
-    <h3>Tayebeh Malmir</h3>
-    <p>Specialist in Psychotherapy</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Female" data-speciality="Anxiety" data-degree="Doctoral">
-    <img src="assets/images/therapists/mahvashtalebi.jpg" alt="Mahvash Talebi">
-    <h3>Mahvash Talebi</h3>
-    <p>Specialist in Anxiety Disorders</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Female" data-speciality="Family Therapy" data-degree="Doctoral">
-    <img src="assets/images/therapists/zeinatmirtaheri.jpg" alt="Zeinab Al-Sadat Mirtaheri">
-    <h3>Zeinat Al-Sadat Mirtaheri</h3>
-    <p>Specialist in Family Therapy</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Female" data-speciality="Child Psychology" data-degree="Doctoral">
-    <img src="assets/images/therapists/nastaranjabari.jpg" alt="Nastaran Jabari">
-    <h3>Nastaran Jabari</h3>
-    <p>Specialist in Child Psychology</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Female" data-speciality="Couples Therapy" data-degree="Masters">
-    <img src="assets/images/therapists/shahrzadspehpour.jpg" alt="Shahrzad Sepehpour">
-    <h3>Shahrzad Sepehpour</h3>
-    <p>Specialist in Couples Therapy</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Female" data-speciality="Stress Management" data-degree="Masters">
-    <img src="assets/images/therapists/sanazekhlasi.jpg" alt="Sanaz Akhlaghi">
-    <h3>Sanaz Ekhlasi</h3>
-    <p>Specialist in Stress Management</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Female" data-speciality="Psychotherapy" data-degree="Doctoral">
-    <img src="assets/images/therapists/shabnamirjalali.jpg" alt="Shabnam Mirjalali">
-    <h3>Shabnam Mirjalali</h3>
-    <p>Specialist in Psychotherapy</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Female" data-speciality="Depression" data-degree="Masters">
-    <img src="assets/images/therapists/raziehjahanshahi.jpg" alt="Razieh Jahanshahi">
-    <h3>Razieh Jahanshahi</h3>
-    <p>Specialist in Depression</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Male" data-speciality="Cognitive Behavioral Therapy" data-degree="Doctoral">
-    <img src="assets/images/therapists/mohammadsadeghalikhani.jpg" alt="Mohammad Sadegh Ali Khani">
-    <h3>Mohammad Sadegh Ali Khani</h3>
-    <p>Specialist in Cognitive Behavioral Therapy</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-<div class="therapist" data-gender="Female" data-speciality="Anxiety" data-degree="Masters">
-    <img src="assets/images/therapists/sogolrahmani.jpg" alt="Sogol Rahmani">
-    <h3>Sogol Rahmani</h3>
-    <p>Specialist in Anxiety</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Female" data-speciality="Behavioral Therapy" data-degree="Doctoral">
-    <img src="assets/images/therapists/najdahmosadeian.jpg" alt="Najdah Mosadeian">
-    <h3>Najdah Mosadeian</h3>
-    <p>Specialist in Behavioral Therapy</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Female" data-speciality="Stress and Anxiety" data-degree="Masters">
-    <img src="assets/images/therapists/leilamollaaghaei.jpg" alt="Leila Molla Aghaei">
-    <h3>Leila Molla Aghaei</h3>
-    <p>Specialist in Stress and Anxiety</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Female" data-speciality="Therapy and Counseling" data-degree="Doctoral">
-    <img src="assets/images/therapists/shokoofehbahari.jpg" alt="Shokoofeh Bahari">
-    <h3>Shokoofeh Bahari</h3>
-    <p>Specialist in Therapy and Counseling</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Female" data-speciality="Stress and Trauma" data-degree="Doctoral">
-    <img src="assets/images/therapists/azamhashemi.jpg" alt="Azam Hashemi">
-    <h3>Azam Hashemi</h3>
-    <p>Specialist in Stress and Trauma</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Male" data-speciality="Cognitive Behavioral Therapy" data-degree="Doctoral">
-    <img src="assets/images/therapists/peymanrastegari.jpg" alt="Peyman Rastegari">
-    <h3>Peyman Rastegari</h3>
-    <p>Specialist in Cognitive Behavioral Therapy</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Female" data-speciality="Anxiety and Stress" data-degree="Masters">
-    <img src="assets/images/therapists/fatemehmohammadnejad.jpg" alt="Fatemeh Mohammad Nejad">
-    <h3>Fatemeh Mohammad Nejad</h3>
-    <p>Specialist in Anxiety and Stress</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Female" data-speciality="Behavioral Psychology" data-degree="Doctoral">
-    <img src="assets/images/therapists/nahidbehzadi.jpg" alt="Nahid Behzadi">
-    <h3>Nahid Behzadi</h3>
-    <p>Specialist in Behavioral Psychology</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Male" data-speciality="Cognitive Behavioral Therapy" data-degree="Masters">
-    <img src="assets/images/therapists/mehranbagheri.jpg" alt="Mehran Bagheri">
-    <h3>Mehran Bagheri</h3>
-    <p>Specialist in Cognitive Behavioral Therapy</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Female" data-speciality="Therapy" data-degree="Doctoral">
-    <img src="assets/images/therapists/aidadarvishian.jpg" alt="Aida Darvishian">
-    <h3>Aida Darvishian</h3>
-    <p>Specialist in Therapy</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Female" data-speciality="Cognitive Therapy" data-degree="Masters">
-    <img src="assets/images/therapists/haniehkanpouri.jpg" alt="Hanieh Kanpouri">
-    <h3>Hanieh Kanpouri</h3>
-    <p>Specialist in Cognitive Therapy</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Female" data-speciality="Psychotherapy" data-degree="Doctoral">
-    <img src="assets/images/therapists/maryammollayari.jpg" alt="Maryam Molla Yari">
-    <h3>Maryam Molla Yari</h3>
-    <p>Specialist in Psychotherapy</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Female" data-speciality="Family Counseling" data-degree="Masters">
-    <img src="assets/images/therapists/zahraronagh.jpg" alt="Zahra Ronagh">
-    <h3>Zahra Ronagh</h3>
-    <p>Specialist in Family Counseling</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Male" data-speciality="Psychotherapy" data-degree="Doctoral">
-    <img src="assets/images/therapists/akramshaterdalalyazdi.jpg" alt="Akram Shater Dalal Yazdi">
-    <h3>Akram Shater Dalal Yazdi</h3>
-    <p>Specialist in Psychotherapy</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Female" data-speciality="Psychotherapy" data-degree="Masters">
-    <img src="assets/images/therapists/mojganhejabi.jpg" alt="Mojgan Hejab">
-    <h3>Mojgan Hejab</h3>
-    <p>Specialist in Psychotherapy</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Female" data-speciality="Family Therapy" data-degree="Doctoral">
-    <img src="assets/images/therapists/maryammalek.jpg" alt="Maryam Malek">
-    <h3>Maryam Malek</h3>
-    <p>Specialist in Family Therapy</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Female" data-speciality="Psychotherapy" data-degree="Master">
-    <img src="assets/images/therapists/faribatorkaman.jpg" alt="Fariba Torkaman">
-    <h3>Fariba Torkaman</h3>
-    <p>Specialist in Psychotherapy</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Female" data-speciality="Psychotherapy" data-degree="Master">
-    <img src="assets/images/therapists/masoumehsadeghi.jpg" alt="Masoumeh Sadeghi">
-    <h3>Masoumeh Sadeghi</h3>
-    <p>Specialist in Psychotherapy</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Female" data-speciality="Psychotherapy" data-degree="Master">
-    <img src="assets/images/therapists/anitazamani.jpg" alt="Anita Zamani">
-    <h3>Anita Zamani</h3>
-    <p>Specialist in Psychotherapy</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Male" data-speciality="Psychotherapy" data-degree="Doctoral">
-    <img src="assets/images/therapists/seyedhosseinrokhsefat.jpg" alt="Seyed Hossein Rokh Sefat">
-    <h3>Seyed Hossein Rokh Sefat</h3>
-    <p>Specialist in Psychotherapy</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Female" data-speciality="Psychotherapy" data-degree="Master">
-    <img src="assets/images/therapists/mahyasamat.jpg" alt="Mahya Samat">
-    <h3>Mahya Samat</h3>
-    <p>Specialist in Psychotherapy</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Female" data-speciality="Psychotherapy" data-degree="Master">
-    <img src="assets/images/therapists/mojganpashootan.jpg" alt="Mojgan Pashootan">
-    <h3>Mojgan Pashootan</h3>
-    <p>Specialist in Psychotherapy</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-</div>
-<div class="therapist" data-gender="Female" data-speciality="Psychotherapy" data-degree="Master">
-    <img src="assets/images/therapists/zohrealikhani.jpg" alt="Zohre Ali Khani">
-    <h3>Zohre Ali Khani</h3>
-    <p>Specialist in Psychotherapy</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/YOUR_LINK_HERE" target="_blank">Book Now</a>
-</div>
-
-<div class="therapist" data-gender="Female" data-speciality="Psychotherapy" data-degree="Master">
-    <img src="assets/images/therapists/niloofaryousefkhani.jpg" alt="Niloofar Yousef Khani">
-    <h3>Niloofar Yousef Khani</h3>
-    <p>Specialist in Psychotherapy</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/YOUR_LINK_HERE" target="_blank">Book Now</a>
-</div>
-        <div class="therapist" data-gender="Male" data-speciality="Anxiety" data-degree="PhD">
-            <img src="assets/images/therapists/ahmadrezakazemihaghighi.jpg" alt="Dr. Nasseroddin Kazemi Haghighi">
-            <h3>Dr. Nasseroddin Kazemi Haghighi</h3>
-            <p>Specialist in Anxiety & Stress Management</p>
-            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
-        </div>
-
-
-
+      <div class="therapist" data-gender="Female" data-speciality="Depression" data-degree="Doctoral">
+        <img src="assets/images/therapists/nasseroddinkazemihaghighi.jpg" alt="Dr. Nasreddin Kazemi Haghighi">
+        <h3>Dr. Nasreddin Kazemi Haghighi</h3>
+        <p>Specialist in Depression and Mood Disorders</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Female" data-speciality="Psychotherapy" data-degree="Masters">
+        <img src="assets/images/therapists/tayebehmalmir.jpg" alt="Tayebeh Malmir">
+        <h3>Tayebeh Malmir</h3>
+        <p>Specialist in Psychotherapy</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Female" data-speciality="Anxiety" data-degree="Doctoral">
+        <img src="assets/images/therapists/mahvashtalebi.jpg" alt="Mahvash Talebi">
+        <h3>Mahvash Talebi</h3>
+        <p>Specialist in Anxiety Disorders</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Female" data-speciality="Family Therapy" data-degree="Doctoral">
+        <img src="assets/images/therapists/zeinatmirtaheri.jpg" alt="Zeinab Al-Sadat Mirtaheri">
+        <h3>Zeinat Al-Sadat Mirtaheri</h3>
+        <p>Specialist in Family Therapy</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Female" data-speciality="Child Psychology" data-degree="Doctoral">
+        <img src="assets/images/therapists/nastaranjabari.jpg" alt="Nastaran Jabari">
+        <h3>Nastaran Jabari</h3>
+        <p>Specialist in Child Psychology</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Female" data-speciality="Couples Therapy" data-degree="Masters">
+        <img src="assets/images/therapists/shahrzadspehpour.jpg" alt="Shahrzad Sepehpour">
+        <h3>Shahrzad Sepehpour</h3>
+        <p>Specialist in Couples Therapy</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Female" data-speciality="Stress Management" data-degree="Masters">
+        <img src="assets/images/therapists/sanazekhlasi.jpg" alt="Sanaz Akhlaghi">
+        <h3>Sanaz Ekhlasi</h3>
+        <p>Specialist in Stress Management</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Female" data-speciality="Psychotherapy" data-degree="Doctoral">
+        <img src="assets/images/therapists/shabnamirjalali.jpg" alt="Shabnam Mirjalali">
+        <h3>Shabnam Mirjalali</h3>
+        <p>Specialist in Psychotherapy</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Female" data-speciality="Depression" data-degree="Masters">
+        <img src="assets/images/therapists/raziehjahanshahi.jpg" alt="Razieh Jahanshahi">
+        <h3>Razieh Jahanshahi</h3>
+        <p>Specialist in Depression</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Male" data-speciality="Cognitive Behavioral Therapy" data-degree="Doctoral">
+        <img src="assets/images/therapists/mohammadsadeghalikhani.jpg" alt="Mohammad Sadegh Ali Khani">
+        <h3>Mohammad Sadegh Ali Khani</h3>
+        <p>Specialist in Cognitive Behavioral Therapy</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Female" data-speciality="Anxiety" data-degree="Masters">
+        <img src="assets/images/therapists/sogolrahmani.jpg" alt="Sogol Rahmani">
+        <h3>Sogol Rahmani</h3>
+        <p>Specialist in Anxiety</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Female" data-speciality="Behavioral Therapy" data-degree="Doctoral">
+        <img src="assets/images/therapists/najdahmosadeian.jpg" alt="Najdah Mosadeian">
+        <h3>Najdah Mosadeian</h3>
+        <p>Specialist in Behavioral Therapy</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Female" data-speciality="Stress and Anxiety" data-degree="Masters">
+        <img src="assets/images/therapists/leilamollaaghaei.jpg" alt="Leila Molla Aghaei">
+        <h3>Leila Molla Aghaei</h3>
+        <p>Specialist in Stress and Anxiety</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Female" data-speciality="Therapy and Counseling" data-degree="Doctoral">
+        <img src="assets/images/therapists/shokoofehbahari.jpg" alt="Shokoofeh Bahari">
+        <h3>Shokoofeh Bahari</h3>
+        <p>Specialist in Therapy and Counseling</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Female" data-speciality="Stress and Trauma" data-degree="Doctoral">
+        <img src="assets/images/therapists/azamhashemi.jpg" alt="Azam Hashemi">
+        <h3>Azam Hashemi</h3>
+        <p>Specialist in Stress and Trauma</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Male" data-speciality="Cognitive Behavioral Therapy" data-degree="Doctoral">
+        <img src="assets/images/therapists/peymanrastegari.jpg" alt="Peyman Rastegari">
+        <h3>Peyman Rastegari</h3>
+        <p>Specialist in Cognitive Behavioral Therapy</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Female" data-speciality="Anxiety and Stress" data-degree="Masters">
+        <img src="assets/images/therapists/fatemehmohammadnejad.jpg" alt="Fatemeh Mohammad Nejad">
+        <h3>Fatemeh Mohammad Nejad</h3>
+        <p>Specialist in Anxiety and Stress</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Female" data-speciality="Behavioral Psychology" data-degree="Doctoral">
+        <img src="assets/images/therapists/nahidbehzadi.jpg" alt="Nahid Behzadi">
+        <h3>Nahid Behzadi</h3>
+        <p>Specialist in Behavioral Psychology</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Male" data-speciality="Cognitive Behavioral Therapy" data-degree="Masters">
+        <img src="assets/images/therapists/mehranbagheri.jpg" alt="Mehran Bagheri">
+        <h3>Mehran Bagheri</h3>
+        <p>Specialist in Cognitive Behavioral Therapy</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Female" data-speciality="Therapy" data-degree="Doctoral">
+        <img src="assets/images/therapists/aidadarvishian.jpg" alt="Aida Darvishian">
+        <h3>Aida Darvishian</h3>
+        <p>Specialist in Therapy</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Female" data-speciality="Cognitive Therapy" data-degree="Masters">
+        <img src="assets/images/therapists/haniehkanpouri.jpg" alt="Hanieh Kanpouri">
+        <h3>Hanieh Kanpouri</h3>
+        <p>Specialist in Cognitive Therapy</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Female" data-speciality="Psychotherapy" data-degree="Doctoral">
+        <img src="assets/images/therapists/maryammollayari.jpg" alt="Maryam Molla Yari">
+        <h3>Maryam Molla Yari</h3>
+        <p>Specialist in Psychotherapy</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Female" data-speciality="Family Counseling" data-degree="Masters">
+        <img src="assets/images/therapists/zahraronagh.jpg" alt="Zahra Ronagh">
+        <h3>Zahra Ronagh</h3>
+        <p>Specialist in Family Counseling</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Male" data-speciality="Psychotherapy" data-degree="Doctoral">
+        <img src="assets/images/therapists/akramshaterdalalyazdi.jpg" alt="Akram Shater Dalal Yazdi">
+        <h3>Akram Shater Dalal Yazdi</h3>
+        <p>Specialist in Psychotherapy</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Female" data-speciality="Psychotherapy" data-degree="Masters">
+        <img src="assets/images/therapists/mojganhejabi.jpg" alt="Mojgan Hejab">
+        <h3>Mojgan Hejab</h3>
+        <p>Specialist in Psychotherapy</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Female" data-speciality="Psychotherapy" data-degree="Master">
+        <img src="assets/images/therapists/faribatorkaman.jpg" alt="Fariba Torkaman">
+        <h3>Fariba Torkaman</h3>
+        <p>Specialist in Psychotherapy</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Female" data-speciality="Psychotherapy" data-degree="Master">
+        <img src="assets/images/therapists/masoumehsadeghi.jpg" alt="Masoumeh Sadeghi">
+        <h3>Masoumeh Sadeghi</h3>
+        <p>Specialist in Psychotherapy</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Female" data-speciality="Psychotherapy" data-degree="Master">
+        <img src="assets/images/therapists/anitazamani.jpg" alt="Anita Zamani">
+        <h3>Anita Zamani</h3>
+        <p>Specialist in Psychotherapy</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Male" data-speciality="Psychotherapy" data-degree="Doctoral">
+        <img src="assets/images/therapists/seyedhosseinrokhsefat.jpg" alt="Seyed Hossein Rokh Sefat">
+        <h3>Seyed Hossein Rokh Sefat</h3>
+        <p>Specialist in Psychotherapy</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Female" data-speciality="Psychotherapy" data-degree="Master">
+        <img src="assets/images/therapists/mahyasamat.jpg" alt="Mahya Samat">
+        <h3>Mahya Samat</h3>
+        <p>Specialist in Psychotherapy</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Female" data-speciality="Psychotherapy" data-degree="Master">
+        <img src="assets/images/therapists/mojganpashootan.jpg" alt="Mojgan Pashootan">
+        <h3>Mojgan Pashootan</h3>
+        <p>Specialist in Psychotherapy</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Female" data-speciality="Psychotherapy" data-degree="Master">
+        <img src="assets/images/therapists/zohrealikhani.jpg" alt="Zohre Ali Khani">
+        <h3>Zohre Ali Khani</h3>
+        <p>Specialist in Psychotherapy</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/YOUR_LINK_HERE" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Female" data-speciality="Psychotherapy" data-degree="Master">
+        <img src="assets/images/therapists/niloofaryousefkhani.jpg" alt="Niloofar Yousef Khani">
+        <h3>Niloofar Yousef Khani</h3>
+        <p>Specialist in Psychotherapy</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/YOUR_LINK_HERE" target="_blank">Book Now</a>
+      </div>
+  
+      <div class="therapist" data-gender="Male" data-speciality="Anxiety" data-degree="PhD">
+        <img src="assets/images/therapists/ahmadrezakazemihaghighi.jpg" alt="Dr. Nasseroddin Kazemi Haghighi">
+        <h3>Dr. Nasseroddin Kazemi Haghighi</h3>
+        <p>Specialist in Anxiety &amp; Stress Management</p>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20VjGqRxKRmcOkB9iaHVKjarpfI7H4zhlQ3Q6xUHWO594Q33930b8wHovgEPVKltIb0NEPU2J6" target="_blank">Book Now</a>
+      </div>
     </div>
-</section>
-
-<!-- JavaScript for Filter Functionality -->
-<script>
+  </section>
+  
+  <!-- JavaScript for Filter Functionality -->
+  <script>
     document.getElementById('filter-form').addEventListener('change', function() {
-        const gender = document.getElementById('gender').value;
-        const speciality = document.getElementById('speciality').value;
-        const degree = document.getElementById('degree').value;
-
-        const therapists = document.querySelectorAll('.therapist');
-        therapists.forEach(therapist => {
-            const therapistGender = therapist.getAttribute('data-gender');
-            const therapistSpeciality = therapist.getAttribute('data-speciality');
-            const therapistDegree = therapist.getAttribute('data-degree');
-
-            if ((gender === "" || therapistGender === gender) &&
-                (speciality === "" || therapistSpeciality === speciality) &&
-                (degree === "" || therapistDegree === degree)) {
-                therapist.style.display = 'block';
-            } else {
-                therapist.style.display = 'none';
-            }
-        });
+      const gender = document.getElementById('gender').value;
+      const speciality = document.getElementById('speciality').value;
+      const degree = document.getElementById('degree').value;
+  
+      const therapists = document.querySelectorAll('.therapist');
+      therapists.forEach(therapist => {
+        const therapistGender = therapist.getAttribute('data-gender');
+        const therapistSpeciality = therapist.getAttribute('data-speciality');
+        const therapistDegree = therapist.getAttribute('data-degree');
+  
+        if ((gender === "" || therapistGender === gender) &&
+            (speciality === "" || therapistSpeciality === speciality) &&
+            (degree === "" || therapistDegree === degree)) {
+          therapist.style.display = 'block';
+        } else {
+          therapist.style.display = 'none';
+        }
+      });
     });
-
+  
     document.getElementById('clear-filters').addEventListener('click', function() {
-        document.getElementById('gender').value = '';
-        document.getElementById('speciality').value = '';
-        document.getElementById('degree').value = '';
-        const therapists = document.querySelectorAll('.therapist');
-        therapists.forEach(therapist => {
-            therapist.style.display = 'block';
-        });
+      document.getElementById('gender').value = '';
+      document.getElementById('speciality').value = '';
+      document.getElementById('degree').value = '';
+      const therapists = document.querySelectorAll('.therapist');
+      therapists.forEach(therapist => {
+        therapist.style.display = 'block';
+      });
     });
-</script>
-
-
-<section id="pay-section">
+  </script>
+  
+  <!-- Pay Section -->
+  <section id="pay-section">
     <div class="pay-container">
-        <h2 class="pay-title">How to Pay</h2>
-        <p class="pay-description">To complete your payment, please use the link below to pay securely via YekPay. After completing your payment, make sure to keep the payment ID, as you will need it for the booking process.</p>
-        <a href="https://dashboard.yekpay.com/payment-link/9626/5fde5d1f88f6f4b5cb7151fe1db24c0fa0849f3c" target="_blank" class="pay-button">Pay Now with YekPay</a>
+      <h2 class="pay-title">How to Pay</h2>
+      <p class="pay-description">
+        To complete your payment, please use the link below to pay securely via YekPay. After completing your payment, make sure to keep the payment ID, as you will need it for the booking process.
+      </p>
+      <a href="https://dashboard.yekpay.com/payment-link/9626/5fde5d1f88f6f4b5cb7151fe1db24c0fa0849f3c" target="_blank" class="pay-button">Pay Now with YekPay</a>
     </div>
-</section>
-
-
-
-<section id="testimonials">
+  </section>
+  
+  <!-- Testimonials Section -->
+  <section id="testimonials">
     <h2>What Our Clients Say</h2>
     <div class="testimonial-container">
-        <div class="testimonial">
-            <p>"The therapy sessions I had with Innerquest truly changed my life. I feel more confident and at peace with myself."</p>
-            <p class="author">John Doe</p>
-            <p class="author-details">Business Executive</p>
-        </div>
-        <div class="testimonial">
-            <p>"I never realized how much my anxiety was affecting my life. Thanks to my therapist, I’m on a path to healing."</p>
-            <p class="author">Jane Smith</p>
-            <p class="author-details">Teacher</p>
-        </div>
-        <div class="testimonial">
-            <p>"Highly professional and compassionate team. I felt heard and supported every step of the way."</p>
-            <p class="author">Alice Johnson</p>
-            <p class="author-details">Software Developer</p>
-        </div>
+      <div class="testimonial">
+        <p>"The therapy sessions I had with Innerquest truly changed my life. I feel more confident and at peace with myself."</p>
+        <p class="author">John Doe</p>
+        <p class="author-details">Business Executive</p>
+      </div>
+      <div class="testimonial">
+        <p>"I never realized how much my anxiety was affecting my life. Thanks to my therapist, I’m on a path to healing."</p>
+        <p class="author">Jane Smith</p>
+        <p class="author-details">Teacher</p>
+      </div>
+      <div class="testimonial">
+        <p>"Highly professional and compassionate team. I felt heard and supported every step of the way."</p>
+        <p class="author">Alice Johnson</p>
+        <p class="author-details">Software Developer</p>
+      </div>
     </div>
-</section>
-
-<style>
-/* Testimonials Section */
-#testimonials {
-    background-color: #f9f9f9;
-    padding: 50px 0;
-    text-align: center;
-}
-
-#testimonials h2 {
-    font-size: 32px;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 30px;
-}
-
-.testimonial-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.testimonial {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.testimonial:hover {
-    transform: translateY(-10px);
-}
-
-.testimonial p {
-    font-size: 16px;
-    color: #555;
-    font-style: italic;
-    margin-bottom: 10px;
-}
-
-.author {
-    font-weight: bold;
-    color: #2c3e50;
-    margin-top: 10px;
-}
-
-.author-details {
-    font-size: 14px;
-    color: #7f8c8d;
-    margin-top: 5px;
-}
-</style>
-
-<section id="faq">
+  </section>
+  <style>
+    /* Testimonials Section */
+    #testimonials {
+      background-color: #FAF9F6;
+      padding: 50px 0;
+      text-align: center;
+    }
+    
+    #testimonials h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #0D3B66;
+      margin-bottom: 30px;
+    }
+    
+    .testimonial-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .testimonial {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    
+    .testimonial:hover {
+      transform: translateY(-10px);
+    }
+    
+    .testimonial p {
+      font-size: 16px;
+      color: #555;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    
+    .author {
+      font-weight: bold;
+      color: #0D3B66;
+      margin-top: 10px;
+    }
+    
+    .author-details {
+      font-size: 14px;
+      color: #7f8c8d;
+      margin-top: 5px;
+    }
+  </style>
+  
+  <!-- FAQ Section -->
+  <section id="faq">
     <h2>Frequently Asked Questions</h2>
     <div class="faq-container">
-        <div class="faq-card">
-            <div class="faq-question">
-                <p>What is the purpose of the "Emotional Insight" test?</p>
-                <span class="toggle-icon">+</span>
-            </div>
-            <div class="faq-answer">
-                <p>The "Emotional Insight" test aims to help individuals identify and understand their emotional responses to various situations, aiding in better emotional management and self-awareness.</p>
-            </div>
+      <div class="faq-card">
+        <div class="faq-question">
+          <p>What is the purpose of the "Emotional Insight" test?</p>
+          <span class="toggle-icon">+</span>
         </div>
-        <div class="faq-card">
-            <div class="faq-question">
-                <p>How long does the test take to complete?</p>
-                <span class="toggle-icon">+</span>
-            </div>
-            <div class="faq-answer">
-                <p>The test typically takes about 15-20 minutes to complete, depending on how quickly you respond to the questions.</p>
-            </div>
+        <div class="faq-answer">
+          <p>
+            The "Emotional Insight" test aims to help individuals identify and understand their emotional responses to various situations, aiding in better emotional management and self-awareness.
+          </p>
         </div>
-        <div class="faq-card">
-            <div class="faq-question">
-                <p>Who can take the "Emotional Insight" test?</p>
-                <span class="toggle-icon">+</span>
-            </div>
-            <div class="faq-answer">
-                <p>This test is designed for adults who are seeking to better understand their emotional responses and improve their emotional intelligence.</p>
-            </div>
+      </div>
+      <div class="faq-card">
+        <div class="faq-question">
+          <p>How long does the test take to complete?</p>
+          <span class="toggle-icon">+</span>
         </div>
-        <div class="faq-card">
-            <div class="faq-question">
-                <p>What happens after I complete the test?</p>
-                <span class="toggle-icon">+</span>
-            </div>
-            <div class="faq-answer">
-                <p>Once you complete the test, you will receive a detailed report that highlights your emotional patterns and provides recommendations for managing them more effectively.</p>
-            </div>
+        <div class="faq-answer">
+          <p>The test typically takes about 15-20 minutes to complete, depending on how quickly you respond to the questions.</p>
         </div>
-        <div class="faq-card">
-            <div class="faq-question">
-                <p>Can I retake the test?</p>
-                <span class="toggle-icon">+</span>
-            </div>
-            <div class="faq-answer">
-                <p>Yes, you can retake the test at any time if you wish to track your emotional progress or simply explore different aspects of your emotional intelligence.</p>
-            </div>
+      </div>
+      <div class="faq-card">
+        <div class="faq-question">
+          <p>Who can take the "Emotional Insight" test?</p>
+          <span class="toggle-icon">+</span>
         </div>
+        <div class="faq-answer">
+          <p>This test is designed for adults who are seeking to better understand their emotional responses and improve their emotional intelligence.</p>
+        </div>
+      </div>
+      <div class="faq-card">
+        <div class="faq-question">
+          <p>What happens after I complete the test?</p>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Once you complete the test, you will receive a detailed report that highlights your emotional patterns and provides recommendations for managing them more effectively.</p>
+        </div>
+      </div>
+      <div class="faq-card">
+        <div class="faq-question">
+          <p>Can I retake the test?</p>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes, you can retake the test at any time if you wish to track your emotional progress or simply explore different aspects of your emotional intelligence.</p>
+        </div>
+      </div>
     </div>
-</section>
-
-<style>
-/* FAQ Section */
-#faq {
-    background-color: #f9f9f9;
-    padding: 50px 0;
-    text-align: center;
-}
-
-#faq h2 {
-    font-size: 32px;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 30px;
-}
-
-.faq-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.faq-card {
-    background: white;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-.faq-question {
-    background: #2c3e50;
-    color: white;
-    padding: 15px;
-    font-size: 18px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.toggle-icon {
-    font-size: 20px;
-    transition: transform 0.3s ease;
-}
-
-.faq-answer {
-    display: none;
-    padding: 15px;
-    font-size: 16px;
-    color: #555;
-    background: #ecf0f1;
-}
-
-.faq-card.open .faq-answer {
-    display: block;
-}
-
-.faq-card.open .toggle-icon {
-    transform: rotate(45deg);
-}
-</style>
-
-<script>
-    document.querySelectorAll('.faq-card').forEach(card => {
-        card.querySelector('.faq-question').addEventListener('click', () => {
-            card.classList.toggle('open');
-        });
-    });
-</script>
-
-    <section id="privacy">
-        <h2>Your Privacy Matters</h2>
-        <p>We are committed to keeping your information secure and confidential. Our platform uses encrypted communication for therapy sessions, and we ensure that all payment details are processed through secure and trusted providers.</p>
-    </section>
-
-<section id="pricing">
+  </section>
+  <style>
+    /* FAQ Section Styles */
+    #faq {
+      background-color: #FAF9F6;
+      padding: 50px 0;
+      text-align: center;
+    }
+    
+    #faq h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #0D3B66;
+      margin-bottom: 30px;
+    }
+    
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .faq-card {
+      background: #fff;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    
+    .faq-question {
+      background: #0D3B66;
+      color: #fff;
+      padding: 15px;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .toggle-icon {
+      font-size: 20px;
+      transition: transform 0.3s ease;
+    }
+    
+    .faq-answer {
+      display: none;
+      padding: 15px;
+      font-size: 16px;
+      color: #555;
+      background: #ecf0f1;
+    }
+    
+    .faq-card.open .faq-answer {
+      display: block;
+    }
+    
+    .faq-card.open .toggle-icon {
+      transform: rotate(45deg);
+    }
+  </style>
+  
+  <!-- Privacy Section -->
+  <section id="privacy">
+    <h2>Your Privacy Matters</h2>
+    <p>
+      We are committed to keeping your information secure and confidential. Our platform uses encrypted communication for therapy sessions, and we ensure that all payment details are processed through secure and trusted providers.
+    </p>
+  </section>
+  <style>
+    /* Privacy Section Styles */
+    #privacy {
+      background-color: #fff;
+      padding: 50px 20px;
+      text-align: center;
+      color: #0D3B66;
+    }
+    
+    #privacy h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    
+    #privacy p {
+      font-size: 16px;
+      color: #555;
+    }
+  </style>
+  
+  <!-- Pricing Section -->
+  <section id="pricing">
     <h2>Our Pricing Packages</h2>
     <div class="pricing-container">
-        <div class="pricing-card">
-            <h3>One Session</h3>
-            <p class="price">$35</p>
-            <p class="description">A single session to dive into your emotional insights and start your journey.</p>
-            <button class="payment-btn">Pay Now</button>
-        </div>
-        <div class="pricing-card">
-            <h3>Four Sessions</h3>
-            <p class="price"><span class="original-price">$140</span> <span class="discounted-price">$120</span></p>
-            <p class="description">A package of four sessions to make deeper progress at a discounted price.</p>
-            <button class="payment-btn">Pay Now</button>
-        </div>
-        <div class="pricing-card">
-            <h3>Eight Sessions</h3>
-            <p class="price"><span class="original-price">$280</span> <span class="discounted-price">$200</span></p>
-            <p class="description">A full package for long-term emotional growth and transformation at a great value.</p>
-            <button class="payment-btn">Pay Now</button>
-        </div>
+      <div class="pricing-card">
+        <h3>One Session</h3>
+        <p class="price">$35</p>
+        <p class="description">A single session to dive into your emotional insights and start your journey.</p>
+        <button class="payment-btn">Pay Now</button>
+      </div>
+      <div class="pricing-card">
+        <h3>Four Sessions</h3>
+        <p class="price"><span class="original-price">$140</span> <span class="discounted-price">$120</span></p>
+        <p class="description">A package of four sessions to make deeper progress at a discounted price.</p>
+        <button class="payment-btn">Pay Now</button>
+      </div>
+      <div class="pricing-card">
+        <h3>Eight Sessions</h3>
+        <p class="price"><span class="original-price">$280</span> <span class="discounted-price">$200</span></p>
+        <p class="description">A full package for long-term emotional growth and transformation at a great value.</p>
+        <button class="payment-btn">Pay Now</button>
+      </div>
     </div>
-</section>
-
-<style>
-/* Pricing Section */
-#pricing {
-    background-color: #f9f9f9;
-    padding: 50px 0;
-    text-align: center;
-}
-
-#pricing h2 {
-    font-size: 32px;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 30px;
-}
-
-.pricing-container {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1000px;
-    margin: 0 auto;
-    gap: 30px;
-}
-
-.pricing-card {
-    background: white;
-    border-radius: 8px;
-    padding: 25px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 30%;
-}
-
-.pricing-card h3 {
-    font-size: 24px;
-    color: #2c3e50;
-    margin-bottom: 15px;
-}
-
-.price {
-    font-size: 28px;
-    color: #e74c3c;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.original-price {
-    text-decoration: line-through;
-    color: #95a5a6;
-}
-
-.discounted-price {
-    color: #2ecc71;
-}
-
-.description {
-    font-size: 16px;
-    color: #7f8c8d;
-    margin-bottom: 20px;
-}
-
-.payment-btn {
-    background-color: #3498db;
-    color: white;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-.payment-btn:hover {
-    background-color: #2980b9;
-}
-</style>
-
-
-
-<section id="blog">
+  </section>
+  <style>
+    /* Pricing Section Styles */
+    #pricing {
+      background-color: #FAF9F6;
+      padding: 50px 0;
+      text-align: center;
+    }
+    
+    #pricing h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #0D3B66;
+      margin-bottom: 30px;
+    }
+    
+    .pricing-container {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1000px;
+      margin: 0 auto;
+      gap: 30px;
+    }
+    
+    .pricing-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 25px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 30%;
+    }
+    
+    .pricing-card h3 {
+      font-size: 24px;
+      color: #0D3B66;
+      margin-bottom: 15px;
+    }
+    
+    .price {
+      font-size: 28px;
+      color: #D4AF37;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    
+    .original-price {
+      text-decoration: line-through;
+      color: #95a5a6;
+    }
+    
+    .discounted-price {
+      color: #0D3B66;
+    }
+    
+    .description {
+      font-size: 16px;
+      color: #7f8c8d;
+      margin-bottom: 20px;
+    }
+    
+    .payment-btn {
+      background-color: #D4AF37;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .payment-btn:hover {
+      background-color: #B2962C;
+    }
+  </style>
+  
+  <!-- Blog Section -->
+  <section id="blog">
     <h2>Our Blog</h2>
     <div class="blog-container">
-        <div class="blog-item">
-            <img src="assets/images/blog/blog1.webp" alt="Blog 1">
-            <h3>5 Tips for Managing Your Emotions Effectively</h3>
-            <p>Discover simple yet effective techniques for managing your emotions in everyday situations.</p>
-            <a href="blog1.html" class="read-more-btn">Read More</a>
-        </div>
-        <div class="blog-item">
-            <img src="assets/images/blog/blog2.webp" alt="Blog 2">
-            <h3>How to Use Emotional Intelligence in the Workplace</h3>
-            <p>Learn how emotional intelligence can improve your work relationships and decision-making.</p>
-            <a href="blog2.html" class="read-more-btn">Read More</a>
-        </div>
-        <div class="blog-item">
-            <img src="assets/images/blog/blog3.webp" alt="Blog 3">
-            <h3>The Power of Positive Thinking</h3>
-            <p>Understand the science behind positive thinking and how it impacts your emotional wellbeing.</p>
-            <a href="blog3.html" class="read-more-btn">Read More</a>
-        </div>
-        <div class="blog-item">
-            <img src="assets/images/blog/blog4.webp" alt="Blog 4">
-            <h3>How Physical Activity Boosts Mental Health</h3>
-            <p>Explore the connection between exercise and mental health and how staying active can improve your mood.</p>
-            <a href="blog4.html" class="read-more-btn">Read More</a>
-        </div>
-        <div class="blog-item">
-            <img src="assets/images/blog/blog5.webp" alt="Blog 5">
-            <h3>Understanding the Link Between Stress and Anxiety</h3>
-            <p>Learn about the relationship between stress and anxiety and strategies to cope with both.</p>
-            <a href="blog5.html" class="read-more-btn">Read More</a>
-        </div>
-        <div class="blog-item">
-            <img src="assets/images/blog/blog6.webp" alt="Blog 6">
-            <h3>Emotional Wellness: A Guide to Self-Care</h3>
-            <p>Discover effective self-care practices to enhance your emotional and mental health.</p>
-            <a href="blog6.html" class="read-more-btn">Read More</a>
-        </div>
-        <div class="blog-item">
-            <img src="assets/images/blog/blog7.webp" alt="Blog 7">
-            <h3>Effective Strategies for Conflict Resolution</h3>
-            <p>Learn strategies to resolve conflicts in your personal and professional life with emotional intelligence.</p>
-            <a href="blog7.html" class="read-more-btn">Read More</a>
-        </div>
-        <div class="blog-item">
-            <img src="assets/images/blog/blog8.webp" alt="Blog 8">
-            <h3>Why Emotional Intelligence is Key to Personal Growth</h3>
-            <p>Explore how emotional intelligence can enhance personal growth and self-awareness.</p>
-            <a href="blog8.html" class="read-more-btn">Read More</a>
-        </div>
+      <div class="blog-item">
+        <img src="assets/images/blog/blog1.webp" alt="Blog 1">
+        <h3>5 Tips for Managing Your Emotions Effectively</h3>
+        <p>Discover simple yet effective techniques for managing your emotions in everyday situations.</p>
+        <a href="blog1.html" class="read-more-btn">Read More</a>
+      </div>
+      <div class="blog-item">
+        <img src="assets/images/blog/blog2.webp" alt="Blog 2">
+        <h3>How to Use Emotional Intelligence in the Workplace</h3>
+        <p>Learn how emotional intelligence can improve your work relationships and decision-making.</p>
+        <a href="blog2.html" class="read-more-btn">Read More</a>
+      </div>
+      <div class="blog-item">
+        <img src="assets/images/blog/blog3.webp" alt="Blog 3">
+        <h3>The Power of Positive Thinking</h3>
+        <p>Understand the science behind positive thinking and how it impacts your emotional wellbeing.</p>
+        <a href="blog3.html" class="read-more-btn">Read More</a>
+      </div>
+      <div class="blog-item">
+        <img src="assets/images/blog/blog4.webp" alt="Blog 4">
+        <h3>How Physical Activity Boosts Mental Health</h3>
+        <p>Explore the connection between exercise and mental health and how staying active can improve your mood.</p>
+        <a href="blog4.html" class="read-more-btn">Read More</a>
+      </div>
+      <div class="blog-item">
+        <img src="assets/images/blog/blog5.webp" alt="Blog 5">
+        <h3>Understanding the Link Between Stress and Anxiety</h3>
+        <p>Learn about the relationship between stress and anxiety and strategies to cope with both.</p>
+        <a href="blog5.html" class="read-more-btn">Read More</a>
+      </div>
+      <div class="blog-item">
+        <img src="assets/images/blog/blog6.webp" alt="Blog 6">
+        <h3>Emotional Wellness: A Guide to Self-Care</h3>
+        <p>Discover effective self-care practices to enhance your emotional and mental health.</p>
+        <a href="blog6.html" class="read-more-btn">Read More</a>
+      </div>
+      <div class="blog-item">
+        <img src="assets/images/blog/blog7.webp" alt="Blog 7">
+        <h3>Effective Strategies for Conflict Resolution</h3>
+        <p>Learn strategies to resolve conflicts in your personal and professional life with emotional intelligence.</p>
+        <a href="blog7.html" class="read-more-btn">Read More</a>
+      </div>
+      <div class="blog-item">
+        <img src="assets/images/blog/blog8.webp" alt="Blog 8">
+        <h3>Why Emotional Intelligence is Key to Personal Growth</h3>
+        <p>Explore how emotional intelligence can enhance personal growth and self-awareness.</p>
+        <a href="blog8.html" class="read-more-btn">Read More</a>
+      </div>
     </div>
     <a href="all-blogs.html" class="view-all-btn">View All Blogs</a>
-</section>
-
-<style>
-/* Blog Section */
-#blog {
-    background-color: #f9f9f9;
-    padding: 60px 0;
-    text-align: center;
-}
-
-#blog h2 {
-    font-size: 32px;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 40px;
-}
-
-.blog-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.blog-item {
-    background-color: white;
-    padding: 30px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    text-align: left;
-}
-
-.blog-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.blog-item h3 {
-    font-size: 20px;
-    font-weight: 600;
-    color: #333;
-    margin: 20px 0;
-}
-
-.blog-item p {
-    font-size: 16px;
-    color: #7f8c8d;
-    margin-bottom: 20px;
-}
-
-.read-more-btn {
-    font-size: 16px;
-    color: #3498db;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.read-more-btn:hover {
-    color: #2980b9;
-}
-
-.view-all-btn {
-    display: inline-block;
-    font-size: 18px;
-    color: #3498db;
-    padding: 10px 20px;
-    border: 2px solid #3498db;
-    border-radius: 4px;
-    text-decoration: none;
-    margin-top: 40px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.view-all-btn:hover {
-    background-color: #3498db;
-    color: white;
-}
-</style>
-<section id="contact">
+  </section>
+  <style>
+    /* Blog Section Styles */
+    #blog {
+      background-color: #FAF9F6;
+      padding: 60px 0;
+      text-align: center;
+    }
+    
+    #blog h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #0D3B66;
+      margin-bottom: 40px;
+    }
+    
+    .blog-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .blog-item {
+      background-color: #fff;
+      padding: 30px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      text-align: left;
+    }
+    
+    .blog-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    
+    .blog-item h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #0D3B66;
+      margin: 20px 0;
+    }
+    
+    .blog-item p {
+      font-size: 16px;
+      color: #7f8c8d;
+      margin-bottom: 20px;
+    }
+    
+    .read-more-btn {
+      font-size: 16px;
+      color: #D4AF37;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .read-more-btn:hover {
+      color: #B2962C;
+    }
+    
+    .view-all-btn {
+      display: inline-block;
+      font-size: 18px;
+      color: #D4AF37;
+      padding: 10px 20px;
+      border: 2px solid #D4AF37;
+      border-radius: 4px;
+      text-decoration: none;
+      margin-top: 40px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    .view-all-btn:hover {
+      background-color: #D4AF37;
+      color: white;
+    }
+  </style>
+  
+  <!-- Contact Section -->
+  <section id="contact">
     <h2>Contact Us</h2>
     <div class="contact-container">
-        <div class="contact-info">
-            <h3>Get in Touch</h3>
-            <p>If you have any questions or want to get more details about our services, feel free to contact us.</p>
-            <div class="contact-details">
-                <p><strong>Email:</strong> support@yourwebsite.com</p>
-                <p><strong>Phone:</strong> +1 234 567 890</p>
-                <p><strong>Address:</strong> 123 Street Name, City, Country</p>
-            </div>
+      <div class="contact-info">
+        <h3>Get in Touch</h3>
+        <p>If you have any questions or want to get more details about our services, feel free to contact us.</p>
+        <div class="contact-details">
+          <p><strong>Email:</strong> support@yourwebsite.com</p>
+          <p><strong>Phone:</strong> +1 234 567 890</p>
+          <p><strong>Address:</strong> 123 Street Name, City, Country</p>
         </div>
-        <div class="contact-form">
-            <h3>Send a Message</h3>
-            <form>
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
-        </div>
+      </div>
+      <div class="contact-form">
+        <h3>Send a Message</h3>
+        <form>
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
     </div>
-</section>
-
-<style>
-/* Contact Section */
-#contact {
-    background-color: #f9f9f9;
-    padding: 60px 0;
-    text-align: center;
-}
-
-#contact h2 {
-    font-size: 32px;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 30px;
-}
-
-.contact-container {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: 30px;
-}
-
-.contact-info {
-    width: 45%;
-    background-color: white;
-    padding: 30px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-.contact-info h3 {
-    font-size: 24px;
-    color: #2c3e50;
-    margin-bottom: 20px;
-}
-
-.contact-details p {
-    font-size: 16px;
-    color: #7f8c8d;
-    margin-bottom: 10px;
-}
-
-.contact-form {
-    width: 45%;
-    background-color: white;
-    padding: 30px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-.contact-form h3 {
-    font-size: 24px;
-    color: #2c3e50;
-    margin-bottom: 20px;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    color: #333;
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-    color: #bdc3c7;
-}
-
-.contact-form textarea {
-    resize: vertical;
-}
-
-.submit-btn {
-    background-color: #3498db;
-    color: white;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-.submit-btn:hover {
-    background-color: #2980b9;
-}
-</style>
-<footer>
+  </section>
+  <style>
+    /* Contact Section Styles */
+    #contact {
+      background-color: #FAF9F6;
+      padding: 60px 0;
+      text-align: center;
+    }
+    
+    #contact h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #0D3B66;
+      margin-bottom: 30px;
+    }
+    
+    .contact-container {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 30px;
+    }
+    
+    .contact-info {
+      width: 45%;
+      background-color: #fff;
+      padding: 30px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    
+    .contact-info h3 {
+      font-size: 24px;
+      color: #0D3B66;
+      margin-bottom: 20px;
+    }
+    
+    .contact-details p {
+      font-size: 16px;
+      color: #7f8c8d;
+      margin-bottom: 10px;
+    }
+    
+    .contact-form {
+      width: 45%;
+      background-color: #fff;
+      padding: 30px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    
+    .contact-form h3 {
+      font-size: 24px;
+      color: #0D3B66;
+      margin-bottom: 20px;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      color: #333;
+    }
+    
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: #bdc3c7;
+    }
+    
+    .contact-form textarea {
+      resize: vertical;
+    }
+    
+    .submit-btn {
+      background-color: #D4AF37;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .submit-btn:hover {
+      background-color: #B2962C;
+    }
+  </style>
+  
+  <!-- Footer Section -->
+  <footer>
     <div class="footer-container">
-        <div class="footer-logo">
-            <img src="assets/logo.png" alt="Company Logo" class="logo">
-        </div>
-        <div class="footer-links">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-        <div class="footer-subscribe">
-            <h3>Subscribe to Our Newsletter</h3>
-            <form action="#" method="POST" class="newsletter-form">
-                <input type="email" name="email" placeholder="Enter your email" required>
-                <button type="submit" class="subscribe-btn">Subscribe</button>
-            </form>
-        </div>
+      <div class="footer-logo">
+        <img src="assets/logo.png" alt="Company Logo" class="logo">
+      </div>
+      <div class="footer-links">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-subscribe">
+        <h3>Subscribe to Our Newsletter</h3>
+        <form action="#" method="POST" class="newsletter-form">
+          <input type="email" name="email" placeholder="Enter your email" required>
+          <button type="submit" class="subscribe-btn">Subscribe</button>
+        </form>
+      </div>
     </div>
     <div class="footer-bottom">
-        <p>&copy; 2025 Emotion of Thought. All Rights Reserved.</p>
+      <p>&copy; 2025 Emotion of Thought. All Rights Reserved.</p>
     </div>
-</footer>
-
-<style>
-/* Footer Section */
-footer {
-    background-color: #2c3e50;
-    color: #fff;
-    padding: 40px 0;
-    font-family: Arial, sans-serif;
-}
-
-.footer-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: left;
-}
-
-.footer-logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.footer-logo .logo {
-    width: 150px;
-    height: auto;
-}
-
-.footer-links ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-links ul li {
-    margin-bottom: 10px;
-}
-
-.footer-links ul li a {
-    color: #ecf0f1;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s ease;
-}
-
-.footer-links ul li a:hover {
-    color: #3498db;
-}
-
-.footer-subscribe h3 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: #ecf0f1;
-}
-
-.newsletter-form {
-    display: flex;
-    gap: 10px;
-}
-
-.newsletter-form input {
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    width: 250px;
-}
-
-.subscribe-btn {
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.subscribe-btn:hover {
-    background-color: #2980b9;
-}
-
-.footer-bottom {
-    background-color: #1a252f;
-    text-align: center;
-    padding: 20px 0;
-    font-size: 14px;
-}
-
-.footer-bottom p {
-    margin: 0;
-    color: #ecf0f1;
-}
-</style>
-
-
-
-
+  </footer>
+  <style>
+    /* Footer Section Styles */
+    footer {
+      background-color: #0D3B66;
+      color: #fff;
+      padding: 40px 0;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+    
+    .footer-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    
+    .footer-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .footer-logo .logo {
+      width: 150px;
+      height: auto;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-links ul li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links ul li a {
+      color: #ecf0f1;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links ul li a:hover {
+      color: #D4AF37;
+    }
+    
+    .footer-subscribe h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #ecf0f1;
+    }
+    
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .newsletter-form input {
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      width: 250px;
+    }
+    
+    .subscribe-btn {
+      padding: 10px 20px;
+      background-color: #D4AF37;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .subscribe-btn:hover {
+      background-color: #B2962C;
+    }
+    
+    .footer-bottom {
+      background-color: #0B2545;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 14px;
+    }
+    
+    .footer-bottom p {
+      margin: 0;
+      color: #ecf0f1;
+    }
+  </style>
 </body>
 </html>
